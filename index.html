@@ -1,4 +1,4 @@
-<!-- PORTAL-ARQUIVO Index v1.0.0 -->
+<!-- PORTAL-ARQUIVO Index v2.0.0 -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,60 +7,107 @@
 <title>Nice AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link id="na-fonte" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap">
+<link id="na-fonte" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap">
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="config.js"></script>
-<!-- PORTAL-ARQUIVO Estilos v1.0.0 -->
+<!-- PORTAL-ARQUIVO Estilos v2.0.0 -->
 <style>
-:root{--pri:#9E1313;--sec:#242424;--dst:#FFF500;--on-pri:#fff;--on-sec:#fff;--on-dst:#111;--bg:#f6f4f2;--card:#fff;--fg:#1d1d1d;--mut:#6b6b6b;--bd:#e3dfdb;--ok:#1f7a3a;--al:#b45309;--er:#b42318;--raio:14px;--fonte:'Montserrat',system-ui,sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-tema="claro"]){--bg:#151515;--card:#1f1f1f;--fg:#f1f1f1;--mut:#a5a5a5;--bd:#333}}
-:root[data-tema="escuro"]{--bg:#151515;--card:#1f1f1f;--fg:#f1f1f1;--mut:#a5a5a5;--bd:#333}
+:root{--realce:var(--pri);--pri:#5C0F2E;--pri-soft:rgba(92,15,46,.12);--sec:#2D0617;--dst:#B8962E;--acao:#0A84FF;--trilha:#7FA8A8;--on-pri:#fff;--on-sec:#fff;--on-dst:#fff;--on-acao:#fff;--bg:#f3f0f1;--card:#fff;--fg:#2a1520;--mut:#6f6068;--bd:#e8e1e4;--ok:#1f7a3a;--al:#b45309;--er:#b42318;--raio:20px;--sombra:0 6px 22px rgba(60,10,30,.08);--fonte:'Montserrat',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-tema="claro"]){--bg:#150b11;--card:#231820;--fg:#f4eaee;--mut:#b5a3ab;--bd:#3a2a33;--pri-soft:rgba(255,255,255,.1);--realce:#f1c6d6;--sombra:0 6px 22px rgba(0,0,0,.4)}}
+:root[data-tema="escuro"]{--bg:#150b11;--card:#231820;--fg:#f4eaee;--mut:#b5a3ab;--bd:#3a2a33;--pri-soft:rgba(255,255,255,.1);--realce:#f1c6d6;--sombra:0 6px 22px rgba(0,0,0,.4)}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--fonte);font-size:16px;line-height:1.5}
 body{overflow-x:hidden}
-h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.15rem;margin:0 0 8px}h3{font-size:1rem;margin:0 0 6px}
+h1{font-size:1.7rem;margin:0 0 4px;color:var(--realce);font-weight:800}h2{font-size:1.2rem;margin:0 0 10px;color:var(--realce);font-weight:800}h3{font-size:1rem;margin:0 0 6px;font-weight:700}
 p{margin:0 0 10px}small,.na-mut{color:var(--mut)}
-.na-carga{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);z-index:50;gap:12px;padding:16px;text-align:center}
+.na-carga{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);z-index:80;gap:12px;padding:16px;text-align:center}
 .na-spin{width:38px;height:38px;border:4px solid var(--bd);border-top-color:var(--pri);border-radius:50%;animation:na-gira 1s linear infinite}
 @keyframes na-gira{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.na-spin{animation:none}*{scroll-behavior:auto!important;transition:none!important}}
-.na-topo{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--pri);color:var(--on-pri);padding:10px 16px;position:sticky;top:0;z-index:20}
-.na-marca{display:flex;align-items:center;gap:8px;font-weight:800;min-width:0}.na-marca img{height:28px;max-width:140px}
-.na-user{display:flex;align-items:center;gap:8px;font-size:.8rem;min-width:0}.na-user span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:34vw}
-.na-menu-btn{display:none;background:transparent;border:0;color:inherit;font-size:1.4rem;cursor:pointer;min-height:44px;min-width:44px}
-.na-corpo{display:flex;min-height:calc(100vh - 56px)}
-.na-nav{width:220px;background:var(--sec);color:var(--on-sec);padding:12px 8px;flex-shrink:0}
-.na-nav button{display:block;width:100%;text-align:left;background:transparent;color:inherit;border:0;border-radius:10px;padding:11px 12px;margin-bottom:2px;font:inherit;font-weight:600;cursor:pointer}
-.na-nav button:hover{background:rgba(255,255,255,.1)}
-.na-nav button.na-ativo{background:var(--pri);color:var(--on-pri)}
-.na-nav .na-grupo{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;opacity:.6;padding:12px 12px 4px}
-.na-main{flex:1;min-width:0;padding:20px 16px 90px;max-width:1000px;margin:0 auto;width:100%}
-.na-card{background:var(--card);border:1px solid var(--bd);border-radius:var(--raio);padding:16px;margin-bottom:14px;min-width:0}
-.na-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.na-grade>*{min-width:0}
-.na-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--pri);color:var(--on-pri);border:0;border-radius:10px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer;min-height:44px}
-.na-btn:hover{filter:brightness(1.1)}.na-btn:disabled{opacity:.5;cursor:not-allowed}
-.na-btn.na-sm{min-height:36px;padding:6px 12px;font-size:.85rem}
+@media (prefers-reduced-motion:reduce){.na-spin{animation:none}*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+.na-topo{display:flex;align-items:center;gap:16px;background:var(--card);padding:14px 32px;border-radius:0 0 28px 28px;box-shadow:var(--sombra);position:sticky;top:0;z-index:40}
+.na-marca{display:flex;align-items:center;gap:12px;min-width:0;cursor:pointer;background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left}
+.na-marca img{height:44px;max-width:150px}
+.na-logo{display:flex;flex-direction:column;line-height:1}
+.na-logo b{font-size:2rem;font-weight:900;letter-spacing:-.04em;color:var(--realce)}
+.na-logo small{font-size:.5rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.na-slogan{font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);border-left:1px solid var(--bd);padding-left:14px}
+.na-pills{display:flex;gap:6px;margin-left:auto;align-items:center;min-width:0;overflow-x:auto;scrollbar-width:none}
+.na-pills::-webkit-scrollbar{display:none}
+.na-pills button{background:transparent;color:var(--fg);border:0;border-radius:999px;padding:10px 20px;font:inherit;font-weight:600;font-size:1.02rem;cursor:pointer;white-space:nowrap}
+.na-pills button:hover{background:var(--pri-soft)}
+.na-pills button.na-ativo{background:var(--pri-soft);color:var(--realce);font-weight:800}
+.na-user{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.na-avatar{position:relative;width:46px;height:46px;border-radius:50%;background:var(--pri);color:var(--on-pri);display:flex;align-items:center;justify-content:center;font-weight:800;overflow:visible;flex-shrink:0}
+.na-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.na-avatar i{position:absolute;right:0;bottom:0;width:13px;height:13px;background:#3ccf6e;border:2px solid var(--card);border-radius:50%}
+.na-nivel{display:flex;flex-direction:column;align-items:center;font-size:.8rem;font-weight:700;line-height:1.1}
+.na-sino{position:relative;background:transparent;border:0;font-size:1.3rem;cursor:pointer;color:var(--fg);min-height:44px;min-width:44px}
+.na-sino b{position:absolute;top:2px;right:2px;background:var(--er);color:#fff;font-size:.68rem;border-radius:999px;min-width:18px;padding:0 4px;line-height:18px}
+.na-menu-btn{display:none;background:transparent;border:0;color:var(--fg);font-size:1.5rem;cursor:pointer;min-height:44px;min-width:44px}
+.na-pagina{max-width:1360px;margin:0 auto;padding:26px 28px 40px;min-width:0}
+.na-dash{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.25fr) minmax(0,.8fr);gap:22px;align-items:start}
+.na-dash>*{min-width:0}
+.na-card{background:var(--card);border:1px solid var(--bd);border-radius:var(--raio);padding:18px;margin-bottom:16px;min-width:0;box-shadow:var(--sombra)}
+.na-vinho{background:linear-gradient(135deg,var(--pri),#7b1d47);color:#fff;border:0}
+.na-vinho h2,.na-vinho h3,.na-vinho p{color:#fff}
+.na-vinho .na-mut{color:rgba(255,255,255,.8)}
+.na-ouro{background:linear-gradient(135deg,var(--dst),#d1b25a);color:#fff;border:0}
+.na-ouro h2,.na-ouro h3{color:#fff}
+.na-tutor{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.na-tutor>div{min-width:0;flex:1 1 180px}
+.na-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--acao);color:var(--on-acao);border:0;border-radius:999px;padding:11px 24px;font:inherit;font-weight:700;cursor:pointer;min-height:44px}
+.na-btn:hover{filter:brightness(1.08)}.na-btn:disabled{opacity:.5;cursor:not-allowed}
+.na-btn.na-sm{min-height:36px;padding:6px 16px;font-size:.85rem}
 .na-btn.na-claro{background:var(--card);color:var(--fg);border:1px solid var(--bd)}
-.na-topo .na-btn.na-claro{background:rgba(255,255,255,.15);color:var(--on-pri);border:0}
+.na-btn.na-vinhob{background:var(--pri);color:var(--on-pri)}
 .na-btn.na-dst{background:var(--dst);color:var(--on-dst)}
-.na-btn.na-perigo{background:var(--er)}
-.na-btn:focus-visible,.na-nav button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--dst);outline-offset:2px}
-input,select,textarea{width:100%;font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;min-height:44px}
+.na-btn.na-perigo{background:var(--er);color:#fff}
+.na-btn:focus-visible,.na-pills button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--dst);outline-offset:2px}
+input,select,textarea{width:100%;font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:10px 14px;min-height:44px}
 textarea{min-height:90px;resize:vertical}
 label{display:block;font-weight:600;font-size:.85rem;margin:10px 0 4px}
 .na-linha{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .na-selo{display:inline-block;background:var(--dst);color:var(--on-dst);font-weight:800;font-size:.75rem;border-radius:999px;padding:2px 10px}
 .na-selo.na-cinza{background:var(--bd);color:var(--fg)}
 .na-selo.na-alerta{background:var(--al);color:#fff}
+.na-selo.na-ok{background:var(--ok);color:#fff}
+.na-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 16px}
+.na-stat{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:10px 12px;text-align:center;box-shadow:var(--sombra)}
+.na-stat b{display:block;font-size:1.35rem;color:var(--realce);line-height:1.2}
+.na-stat small{font-size:.72rem}
 .na-barra{height:12px;background:var(--bd);border-radius:999px;overflow:hidden}
-.na-barra i{display:block;height:100%;background:var(--pri);border-radius:999px}
+.na-barra i{display:block;height:100%;background:linear-gradient(90deg,var(--pri),var(--dst));border-radius:999px}
 .na-prog{margin-bottom:12px}.na-prog .na-linha{justify-content:space-between}
+.na-balao{display:flex;gap:12px;align-items:flex-start;margin:14px 0 10px}
+.na-robo{width:54px;height:54px;border-radius:50%;background:var(--pri);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;flex-shrink:0}
+.na-balao p{background:#e8dde1;color:#2a1520;border-radius:18px;padding:12px 16px;margin:0}
+.na-envio{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--bd);border-radius:999px;padding:4px 6px 4px 18px}
+.na-envio input{border:0;min-height:40px;padding:0;background:transparent}
+.na-envio input:focus-visible{outline:none}
+.na-envio button{background:transparent;border:0;color:var(--mut);font-size:1.4rem;cursor:pointer;min-height:40px;min-width:40px}
+.na-jogos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.na-jogo{border-radius:var(--raio);padding:16px;cursor:pointer;border:0;text-align:left;font:inherit;color:#fff;min-height:112px}
+.na-jogo.na-j1{background:linear-gradient(135deg,var(--pri),#7b1d47)}
+.na-jogo.na-j2{background:linear-gradient(135deg,var(--dst),#d1b25a)}
+.na-jogo h3{color:#fff;font-size:1.05rem}
+.na-chips{display:flex;flex-wrap:wrap;gap:6px}
+.na-chips span{background:rgba(255,255,255,.25);border-radius:10px;padding:3px 10px;font-size:.8rem;font-weight:700}
+.na-trilhabox{position:relative;padding:0 4px}
+.na-trilhabox svg{width:100%;height:auto;display:block}
+.na-trilhabox .na-nome{font-size:11px;font-weight:600;fill:var(--fg)}
+.na-no{cursor:pointer}
+.na-prox{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:12px 16px;text-align:center;box-shadow:var(--sombra);width:min(62%,280px)}
+.na-prox p{margin:0 0 6px;font-size:.88rem}
+.na-forum{display:flex;flex-direction:column;gap:10px}
+.na-topicoitem{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:12px 14px;cursor:pointer;text-align:left;font:inherit;color:var(--fg);width:100%}
+.na-topicoitem:hover{box-shadow:var(--sombra)}
+.na-topicoitem small{display:flex;gap:12px;align-items:center}
+.na-topicoitem b{display:block;margin:2px 0 6px;font-size:.92rem}
 .na-chat{display:flex;flex-direction:column;gap:10px;max-height:52vh;overflow-y:auto;padding:4px 2px}
-.na-msg{max-width:88%;padding:10px 14px;border-radius:16px;overflow-wrap:anywhere}
-.na-msg.na-agente{background:var(--card);border:1px solid var(--bd);align-self:flex-start}
+.na-msg{max-width:88%;padding:10px 14px;border-radius:18px;overflow-wrap:anywhere}
+.na-msg.na-agente{background:#e8dde1;color:#2a1520;align-self:flex-start}
 .na-msg.na-aluno{background:var(--pri);color:var(--on-pri);align-self:flex-end}
-.na-corr{background:rgba(255,245,0,.18);border-left:4px solid var(--dst);padding:8px 10px;border-radius:8px;margin-top:8px;font-size:.88rem}
+.na-corr{background:rgba(184,150,46,.18);border-left:4px solid var(--dst);padding:8px 10px;border-radius:8px;margin-top:8px;font-size:.88rem;color:#2a1520}
 .na-entrada{display:flex;gap:8px;align-items:flex-end;margin-top:10px}.na-entrada textarea{min-height:48px;flex:1}
 .na-mic.na-gravando{background:var(--er);animation:na-pulsa 1s infinite}
 @keyframes na-pulsa{50%{opacity:.6}}
@@ -69,16 +116,57 @@ label{display:block;font-weight:600;font-size:.85rem;margin:10px 0 4px}
 .na-rolar{overflow-x:auto}
 .na-vazio{text-align:center;color:var(--mut);padding:24px}
 .na-erro{border-color:var(--er);color:var(--er)}
-.na-toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--sec);color:#fff;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:60;max-width:92vw;text-align:center}
+.na-toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--sec);color:#fff;padding:12px 18px;border-radius:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:90;max-width:92vw;text-align:center}
 .na-toast.na-on{opacity:1}
-.na-skel{height:70px;border-radius:var(--raio);background:linear-gradient(90deg,var(--bd),var(--card),var(--bd));background-size:200% 100%;animation:na-brilho 1.2s infinite;margin-bottom:12px}
+.na-skel{height:90px;border-radius:var(--raio);background:linear-gradient(90deg,var(--bd),var(--card),var(--bd));background-size:200% 100%;animation:na-brilho 1.2s infinite;margin-bottom:14px}
 @keyframes na-brilho{to{background-position:-200% 0}}
-.na-leitura{background:var(--card);border:1px dashed var(--bd);border-radius:12px;padding:12px;margin-bottom:12px;white-space:pre-wrap;overflow-wrap:anywhere}
-@media (max-width:760px){
+.na-leitura{background:var(--card);border:1px dashed var(--bd);border-radius:14px;padding:14px;margin-bottom:12px;overflow-wrap:anywhere;line-height:1.9}
+.na-pal{cursor:pointer;border-radius:6px;padding:0 1px}
+.na-pal:hover{background:rgba(184,150,46,.3)}
+.na-dica{position:fixed;z-index:70;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:min(320px,92vw)}
+.na-dica h3{color:var(--realce)}
+.na-escrita{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.na-escrita>*{min-width:0}
+.na-sug{background:rgba(31,122,58,.1);border-left:4px solid var(--ok);border-radius:10px;padding:10px 12px;white-space:pre-wrap;overflow-wrap:anywhere}
+.na-fala{text-align:center;padding:24px 12px}
+.na-fala .na-robo{width:110px;height:110px;font-size:3.4rem;margin:0 auto 12px;transition:box-shadow .2s}
+.na-fala .na-robo.na-ouvindo{box-shadow:0 0 0 12px rgba(10,132,255,.25)}
+.na-fala .na-robo.na-falando{box-shadow:0 0 0 12px rgba(184,150,46,.35)}
+.na-legenda{min-height:60px;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:12px;margin:12px auto;max-width:560px;text-align:left}
+.na-linhaaudio{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:12px;cursor:pointer}
+.na-linhaaudio:hover{background:var(--pri-soft)}
+.na-linhaaudio.na-toca{background:rgba(184,150,46,.25)}
+.na-linhaaudio b{min-width:64px;color:var(--realce)}
+.na-par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.na-peca{background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:12px;font:inherit;font-weight:700;cursor:pointer;color:var(--fg);min-height:48px}
+.na-peca.na-sel{border-color:var(--acao)}
+.na-peca.na-certa{border-color:var(--ok);background:rgba(31,122,58,.12);cursor:default}
+.na-peca.na-errada{border-color:var(--er)}
+.na-pecas{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.na-montada{min-height:56px;border:2px dashed var(--bd);border-radius:14px;padding:8px;display:flex;flex-wrap:wrap;gap:8px}
+.na-rodape{background:#d3c4c9;color:#2a1520;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 32px;font-size:.9rem;margin-top:10px}
+:root[data-tema="escuro"] .na-rodape{background:#2D0617;color:#f4eaee}
+.na-rodape nav{display:flex;gap:20px}
+.na-rodape a,.na-rodape button{color:inherit;background:none;border:0;font:inherit;cursor:pointer;text-decoration:none;padding:0}
+.na-graf{display:flex;align-items:flex-end;gap:4px;height:120px;padding-top:8px}
+.na-graf div{flex:1;min-width:0;background:linear-gradient(180deg,var(--dst),var(--pri));border-radius:6px 6px 0 0;position:relative}
+.na-graf span{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:.58rem;color:var(--mut);white-space:nowrap}
+.na-abas{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.na-abas button{background:var(--card);border:1px solid var(--bd);border-radius:999px;padding:8px 18px;font:inherit;font-weight:700;cursor:pointer;color:var(--fg)}
+.na-abas button.na-ativo{background:var(--pri);color:var(--on-pri);border-color:var(--pri)}
+@media (max-width:1100px){.na-dash{grid-template-columns:minmax(0,1fr)}.na-slogan{display:none}.na-topo{padding:12px 16px}.na-pagina{padding:18px 14px 30px}}
+@media (max-width:860px){
 .na-menu-btn{display:inline-flex;align-items:center;justify-content:center}
-.na-nav{position:fixed;top:56px;left:0;bottom:0;z-index:30;transform:translateX(-100%);transition:transform .2s;width:240px}
-.na-nav.na-aberto{transform:none}
+.na-topo{gap:8px;flex-wrap:wrap}
+.na-user{margin-left:auto}
+.na-pills{display:none;order:9;width:100%;flex-direction:column;align-items:stretch;overflow:visible;margin-left:0;padding-top:6px}
+.na-pills.na-aberto{display:flex}
+.na-pills button{text-align:left}
+.na-escrita{grid-template-columns:minmax(0,1fr)}
 .na-msg{max-width:96%}
+.na-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+.na-nivel{display:none}
+.na-rodape{padding:14px 16px}
 }
 </style>
 <!-- FIM-DO-ARQUIVO -->
@@ -89,16 +177,25 @@ label{display:block;font-weight:600;font-size:.85rem;margin:10px 0 4px}
 <div id="na-app" hidden>
   <header class="na-topo">
     <button class="na-menu-btn" data-act="menu" aria-label="Abrir menu">&#9776;</button>
-    <div class="na-marca"><img id="na-logo" alt="" hidden><span id="na-nome">Nice AI</span></div>
-    <div class="na-user"><span id="na-quem"></span><button class="na-btn na-sm na-claro" data-act="tema" aria-label="Trocar tema">&#9680;</button><button id="na-sair" class="na-btn na-sm na-claro" data-act="sair" hidden>Sair</button></div>
+    <button class="na-marca" data-go="inicio" aria-label="Ir para o início"><img id="na-logo" alt="" hidden><span class="na-logo" id="na-logotxt"><b id="na-nome">NICE</b><small>Inglês em todo lugar</small></span></button>
+    <span class="na-slogan">Plataforma de inglês com IA</span>
+    <nav id="na-nav" class="na-pills" aria-label="Menu principal"></nav>
+    <div class="na-user">
+      <button id="na-sino" class="na-sino" data-go="recados" aria-label="Recados do professor" hidden>&#128276;<b id="na-sino-n" hidden>0</b></button>
+      <div class="na-avatar" id="na-avatar" aria-hidden="true"></div>
+      <div class="na-nivel"><span id="na-bandeira">&#127468;&#127463;</span><span id="na-nivel"></span></div>
+      <button class="na-btn na-sm na-claro" data-act="tema" aria-label="Trocar tema">&#9680;</button>
+      <button id="na-sair" class="na-btn na-sm na-claro" data-act="sair" hidden>Sair</button>
+    </div>
   </header>
-  <div class="na-corpo">
-    <nav id="na-nav" class="na-nav" aria-label="Menu principal"></nav>
-    <main id="na-main" class="na-main" tabindex="-1"></main>
-  </div>
+  <main id="na-main" class="na-pagina" tabindex="-1"></main>
+  <footer class="na-rodape">
+    <span>&copy; Copyright. <span id="na-rodape-nome">Nice School</span></span>
+    <nav><button data-go="suporte">Suporte</button><button data-go="suporte">Contato</button><a href="privacidade.html" id="na-priv">Privacidade</a></nav>
+  </footer>
 </div>
 <div id="na-toast" class="na-toast" role="status" aria-live="polite"></div>
-<!-- PORTAL-ARQUIVO App v1.0.0 -->
+﻿<!-- PORTAL-ARQUIVO App v2.0.0 -->
 <script>
 var S = { loc: 'inicio', user: null, marca: null, sala: null, vel: 1, lang: 'en-US', rec: null, falarResp: true, lista: {} };
 var HAB = ['leitura', 'escrita', 'escuta', 'fala'];
@@ -153,44 +250,62 @@ function lum(hex) {
   var n = parseInt(hex.slice(1), 16), r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
   return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 }
+function rgbaDe(hex, a) {
+  var n = parseInt(hex.slice(1), 16);
+  return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+}
+
 function aplicarMarca() {
   var m = S.marca, r = document.documentElement.style;
   r.setProperty('--pri', m.COR_PRIMARIA); r.setProperty('--sec', m.COR_SECUNDARIA); r.setProperty('--dst', m.COR_DESTAQUE);
+  r.setProperty('--acao', m.COR_ACAO); r.setProperty('--trilha', m.COR_TRILHA);
+  r.setProperty('--pri-soft', rgbaDe(m.COR_PRIMARIA, 0.12));
   r.setProperty('--on-pri', lum(m.COR_PRIMARIA) > 0.6 ? '#111' : '#fff');
   r.setProperty('--on-sec', lum(m.COR_SECUNDARIA) > 0.6 ? '#111' : '#fff');
-  r.setProperty('--on-dst', lum(m.COR_DESTAQUE) > 0.5 ? '#111' : '#fff');
+  r.setProperty('--on-dst', lum(m.COR_DESTAQUE) > 0.6 ? '#111' : '#fff');
+  r.setProperty('--on-acao', lum(m.COR_ACAO) > 0.6 ? '#111' : '#fff');
   r.setProperty('--fonte', "'" + m.FONTE + "', system-ui, sans-serif");
-  $('na-fonte').href = 'https:' + String.fromCharCode(47, 47) + 'fonts.googleapis.com/css2?family=' + encodeURIComponent(m.FONTE).replace(/%20/g, '+') + ':wght@400;600;700;800&display=swap';
-  $('na-nome').textContent = m.NOME_ESCOLA + ' - Nice AI';
-  if (m.LOGO_URL) { $('na-logo').src = m.LOGO_URL; $('na-logo').hidden = false; }
+  $('na-fonte').href = 'https:' + String.fromCharCode(47, 47) + 'fonts.googleapis.com/css2?family=' + encodeURIComponent(m.FONTE).replace(/%20/g, '+') + ':wght@400;600;700;800;900&display=swap';
+  $('na-rodape-nome').textContent = m.NOME_ESCOLA;
+  if (m.LOGO_URL) { $('na-logo').src = m.LOGO_URL; $('na-logo').hidden = false; $('na-logotxt').hidden = true; }
+}
+
+function atualizarChip() {
+  var u = S.user, av = $('na-avatar'), ini = (u.nome || u.email || '?').trim().charAt(0).toUpperCase();
+  av.innerHTML = (u.foto ? '<img alt="" referrerpolicy="no-referrer" src="' + h(u.foto) + '">' : h(ini)) + '<i></i>';
+  $('na-nivel').textContent = u.nivel || '';
+  var n = Number(u.recados) || 0;
+  $('na-sino').hidden = false;
+  $('na-sino-n').hidden = !n;
+  $('na-sino-n').textContent = n;
 }
 
 function montarMenu() {
   var p = S.user.perfil, it = [];
-  function g(t) { it.push({ g: t }); }
   function i(r, t) { it.push({ r: r, t: t }); }
-  if (p === 'ADMIN') { g('Administração'); i('inicio', 'Indicadores'); i('turma', 'Alunos e turmas'); i('usuarios', 'Usuários'); i('licoes', 'Lições'); i('planos', 'Planos'); i('config', 'Configurações'); i('log', 'Histórico'); }
-  if (p === 'PROFESSOR') { g('Professor'); i('inicio', 'Minha turma'); }
-  g(p === 'ALUNO' ? 'Estudar' : 'Praticar');
-  i(p === 'ALUNO' ? 'inicio' : 'meu', 'Meu painel');
-  i('sala/leitura', 'Leitura'); i('sala/escrita', 'Escrita'); i('sala/escuta', 'Escuta'); i('sala/fala', 'Fala');
-  i('biblioteca', 'Biblioteca'); i('perfil', 'Meu perfil');
-  $('na-nav').innerHTML = it.map(function (x) {
-    return x.g ? '<div class="na-grupo">' + h(x.g) + '</div>' : '<button data-go="' + h(x.r) + '">' + h(x.t) + '</button>';
-  }).join('');
-  $('na-quem').textContent = S.user.nome + ' (' + S.user.perfil.toLowerCase() + ')';
+  if (p === 'ADMIN') { i('inicio', 'Indicadores'); i('turma', 'Alunos'); i('usuarios', 'Usuários'); i('conteudo', 'Conteúdo'); i('planos', 'Planos'); i('config', 'Configurações'); i('log', 'Histórico'); i('agenda', 'Agenda'); i('comunidade', 'Comunidade'); i('meu', 'Estudar'); }
+  else if (p === 'EDITOR') { i('inicio', 'Conteúdo'); i('biblioteca', 'Biblioteca AI'); i('comunidade', 'Comunidade'); i('meu', 'Estudar'); }
+  else if (p === 'PROFESSOR') { i('inicio', 'Minha turma'); i('agenda', 'Agenda'); i('comunidade', 'Comunidade'); i('biblioteca', 'Biblioteca AI'); i('meu', 'Estudar'); }
+  else { i('inicio', 'Início'); i('cursos', 'Cursos'); i('progresso', 'Progresso'); i('biblioteca', 'Biblioteca AI'); i('agenda', 'Agenda'); i('comunidade', 'Comunidade'); i('suporte', 'Suporte'); }
+  $('na-nav').innerHTML = it.map(function (x) { return '<button data-go="' + h(x.r) + '">' + h(x.t) + '</button>'; }).join('');
 }
 
 function marcarMenu() {
-  var rota = rotaAtual(), btns = $('na-nav').querySelectorAll('button'), k;
+  var rota = rotaAtual().split('/')[0], btns = $('na-nav').querySelectorAll('button'), k, alvo = rota;
+  if (alvo === 'sala' || alvo === 'jogos') alvo = S.user.perfil === 'ALUNO' ? 'cursos' : 'meu';
+  if (alvo === 'aluno' || alvo === 'relatorio') alvo = 'turma';
+  if (alvo === 'topico') alvo = 'comunidade';
+  if (alvo === 'recados' || alvo === 'perfil') alvo = '';
   for (k = 0; k < btns.length; k++) {
     var d = btns[k].getAttribute('data-go');
-    btns[k].className = (d === rota || (rota.indexOf('sala/') === 0 && d === rota.split('/').slice(0, 2).join('/'))) ? 'na-ativo' : '';
+    btns[k].className = (d === alvo || (d === 'inicio' && (alvo === 'meu' && S.user.perfil === 'ALUNO'))) ? 'na-ativo' : '';
   }
-  $('na-nav').className = 'na-nav';
+  $('na-nav').className = 'na-pills';
 }
 
 function limparSala() {
+  S.chamada = false; S.dialogo = false;
+  ACOES.fecharDica();
   try { if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {}
   try { if (S.rec) S.rec.stop(); } catch (e) {}
   S.rec = null;
@@ -200,7 +315,7 @@ function navegar() {
   if (!S.user) return;
   limparSala();
   var partes = rotaAtual().split('/'), r = partes[0];
-  if (r === 'inicio') r = S.user.perfil === 'ALUNO' ? 'meu' : (S.user.perfil === 'PROFESSOR' ? 'turma' : 'indicadores');
+  if (r === 'inicio') r = { ALUNO: 'meu', PROFESSOR: 'turma', EDITOR: 'conteudo', ADMIN: 'indicadores' }[S.user.perfil] || 'meu';
   marcarMenu();
   if (!T[r]) { erroTela(new Error('Tela não encontrada.')); return; }
   carregando();
@@ -224,7 +339,7 @@ document.addEventListener('click', function (e) {
   var g = e.target.closest && e.target.closest('[data-go]');
   if (g) { e.preventDefault(); ir(g.getAttribute('data-go')); return; }
   var ac = e.target.closest && e.target.closest('[data-act]');
-  if (ac) { var f = ACOES[ac.getAttribute('data-act')]; if (f) { e.preventDefault(); f(ac, e); } return; }
+  if (ac) { var f = ACOES[ac.getAttribute('data-act')]; if (f) { if (ac.tagName !== 'INPUT') e.preventDefault(); f(ac, e); } return; }
   var a = e.target.closest && e.target.closest('a[href]');
   if (!a) return;
   var hr = a.getAttribute('href');
@@ -245,6 +360,7 @@ document.addEventListener('submit', function (e) {
 }, true);
 
 ACOES.menu = function () { $('na-nav').classList.toggle('na-aberto'); };
+ACOES.fecharDica = function () { var d = $('na-dica'); if (d) d.remove(); };
 ACOES.tema = function () {
   var r = document.documentElement, atual = r.getAttribute('data-tema');
   var novo = atual === 'escuro' ? 'claro' : 'escuro';
@@ -252,10 +368,11 @@ ACOES.tema = function () {
   try { localStorage.setItem('na-tema', novo); } catch (e) {}
 };
 
-function falar(txt, lang) {
-  if (!window.speechSynthesis) { toast('Seu navegador não tem voz sintética.'); return; }
+function falar(txt, lang, fim, tom) {
+  if (!window.speechSynthesis) { toast('Seu navegador não tem voz sintética.'); if (fim) fim(); return; }
   var u = new SpeechSynthesisUtterance(txt);
-  u.lang = lang || 'en-US'; u.rate = S.vel || 1;
+  u.lang = lang || 'en-US'; u.rate = S.vel || 1; u.pitch = tom || 1;
+  if (fim) { u.onend = fim; u.onerror = fim; }
   speechSynthesis.cancel(); speechSynthesis.speak(u);
 }
 
@@ -265,7 +382,7 @@ function ouvirVoz(lang, cb, fim) {
   var r = new SR();
   r.lang = lang; r.interimResults = false; r.maxAlternatives = 1;
   r.onresult = function (e) { cb(e.results[0][0].transcript); };
-  r.onerror = function (e) { toast(e.error === 'not-allowed' || e.error === 'service-not-allowed' ? 'Microfone bloqueado neste ambiente. Use o texto e veja Meu perfil > Testar microfone.' : 'Microfone: ' + e.error); };
+  r.onerror = function (e) { S.erroMic = e.error; if (e.error === 'no-speech' || e.error === 'aborted') return; toast(e.error === 'not-allowed' || e.error === 'service-not-allowed' ? 'Microfone bloqueado neste ambiente. Use o texto e veja Meu perfil > Testar microfone.' : 'Microfone: ' + e.error); };
   r.onend = function () { S.rec = null; if (fim) fim(); };
   S.rec = r;
   try { r.start(); } catch (e) { toast('Não foi possível iniciar o microfone.'); return false; }
@@ -275,7 +392,7 @@ function ouvirVoz(lang, cb, fim) {
 function abrirApp(d) {
   var primeira = !S.user;
   S.user = d.usuario; S.marca = d.marca;
-  aplicarMarca(); montarMenu();
+  aplicarMarca(); montarMenu(); atualizarChip();
   $('na-carga').style.display = 'none';
   $('na-app').hidden = false;
   if (modoSite()) $('na-sair').hidden = false;
@@ -352,10 +469,11 @@ iniciar();
 </script>
 <!-- FIM-DO-ARQUIVO -->
 
-<!-- PORTAL-ARQUIVO Telas v1.0.0 -->
+<!-- PORTAL-ARQUIVO Telas v2.0.0 -->
 <script>
-var TITULO = { leitura: 'Leitura', escrita: 'Escrita', escuta: 'Escuta', fala: 'Fala' };
-var DESCR = { leitura: 'Leia textos no seu nível e converse sobre eles.', escrita: 'Escreva e receba correção com explicação.', escuta: 'Ouça e mostre o que entendeu.', fala: 'Converse com o Nice AI por voz ou texto.' };
+var TITULO = { leitura: 'Leitura', escrita: 'Escrita', escuta: 'Escuta', fala: 'Fala', nivelamento: 'Nivelamento' };
+var DESCR = { leitura: 'Textos no seu nível. Clique em qualquer palavra para ver a tradução no contexto.', escrita: 'Escreva e receba correção ao vivo, com a explicação de cada erro.', escuta: 'Diálogos e podcasts criados para o seu nível, com transcrição interativa.', fala: 'Converse por voz com o Nice AI, como numa chamada.' };
+var ICONE = { leitura: '📖', escrita: '✍️', escuta: '🎧', fala: '🎙️' };
 
 function barras(p) {
   return HAB.map(function (k) {
@@ -378,49 +496,154 @@ function setForm(form, obj) {
   for (k = 0; k < els.length; k++) if (els[k].name && obj[els[k].name] !== undefined) els[k].value = obj[els[k].name];
   form.scrollIntoView({ block: 'center' });
 }
+function fmtLocal(s) {
+  s = String(s || '');
+  if (/Z$/.test(s)) { try { return new Date(s).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }); } catch (e) { return s; } }
+  var m = s.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}:\d{2})/);
+  return m ? m[3] + '/' + m[2] + ' ' + m[4] : s;
+}
+function diaSemana(s) {
+  var m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return '';
+  return ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'][new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], 12)).getUTCDay()];
+}
+function estrela(cx, cy, r) {
+  var p = [], i;
+  for (i = 0; i < 10; i++) { var a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.45 : r; p.push((cx + rr * Math.cos(a)).toFixed(1) + ',' + (cy + rr * Math.sin(a)).toFixed(1)); }
+  return p.join(' ');
+}
+
+function trilhaSvg(t) {
+  var pos = [[100, 70], [250, 70], [400, 70], [100, 370], [250, 370], [400, 370]];
+  var feitas = t.itens.filter(function (x) { return x.concluida; }).length, atual = -1, k;
+  for (k = 0; k < t.itens.length; k++) if (!t.itens[k].concluida) { atual = k; break; }
+  var d = 'M40,70 H520 C600,70 600,220 520,220 H80 C0,220 0,370 80,370 H500';
+  var s = '<svg viewBox="0 0 600 440" role="img" aria-label="Trilha de aprendizado"><path d="' + d + '" fill="none" stroke="var(--bd)" stroke-width="12" stroke-linecap="round"/>';
+  s += '<path d="' + d + '" fill="none" stroke="var(--trilha)" stroke-width="12" stroke-linecap="round" pathLength="100" stroke-dasharray="' + Math.round(feitas * 100 / 7) + ' 100"/>';
+  t.itens.forEach(function (x, i) {
+    var p = pos[i], c = p[0], y = p[1];
+    var rotulo = h(x.Titulo.length > 16 ? x.Titulo.slice(0, 15) + '…' : x.Titulo);
+    s += '<g class="na-no" data-go="sala/' + h(x.Habilidade) + '/' + h(x.ID) + '" role="link" tabindex="0"><title>' + h(x.Titulo) + '</title>';
+    if (x.concluida) s += '<polygon points="' + estrela(c, y, 26) + '" fill="var(--dst)" stroke="#fff" stroke-width="2"/>';
+    else if (i === atual) s += '<circle cx="' + c + '" cy="' + y + '" r="30" fill="none" stroke="var(--acao)" stroke-width="4"/><polygon points="' + estrela(c, y, 24) + '" fill="var(--dst)" opacity=".55"/>';
+    else s += '<circle cx="' + c + '" cy="' + y + '" r="18" fill="var(--card)" stroke="var(--bd)" stroke-width="4"/>';
+    s += '<text class="na-nome" x="' + c + '" y="' + (y < 200 ? y - 40 : y + 52) + '" text-anchor="middle">' + rotulo + '</text></g>';
+  });
+  s += '<circle cx="530" cy="370" r="20" fill="var(--card)" stroke="var(--trilha)" stroke-width="5"/><text class="na-nome" x="530" y="422" text-anchor="middle">Marco (' + h(t.marco) + ')</text></svg>';
+  return s;
+}
+
+function colunaTrilha(d) {
+  var t = d.trilha, html = '<div class="na-card"><h2>Seu Caminho de Aprendizado</h2>';
+  if (!t.itens.length) return html + '<div class="na-vazio">Ainda não há lições cadastradas.</div></div>';
+  html += '<div class="na-trilhabox">' + trilhaSvg(t) + '<div class="na-prox">';
+  if (t.proxima) html += '<p>Próxima Aula:<br><b>' + h(t.proxima.Titulo) + ' (' + h(t.proxima.Nivel) + ')</b></p><button class="na-btn" data-go="sala/' + h(t.proxima.Habilidade) + '/' + h(t.proxima.ID) + '">Começar Agora</button>';
+  else html += '<p><b>Parabéns!</b> Você concluiu todas as lições deste nível.</p><button class="na-btn" data-go="biblioteca">Ver biblioteca</button>';
+  return html + '</div></div><p class="na-mut" style="text-align:center;margin:8px 0 0">' + t.feitas + ' de ' + t.total + ' lições concluídas</p></div>';
+}
+
+function colunaComunidade(d) {
+  var html = '<div class="na-card"><h2>Comunidade Nice</h2><p class="na-mut">Fórum de discussões</p><div class="na-forum">';
+  if (!d.comunidade.length) html += '<div class="na-vazio">Nenhum tópico ainda. Comece o primeiro!</div>';
+  d.comunidade.forEach(function (p) {
+    html += '<button class="na-topicoitem" data-go="topico/' + h(p.ID) + '"><small>' + h(p.AutorNome) + '</small><b>' + h(p.Titulo) + '</b><small>💬 ' + p.respostas + ' &nbsp; 👍 ' + p.curtidas + '</small></button>';
+  });
+  return html + '</div><p></p><button class="na-btn na-sm na-claro" data-go="comunidade">Ver todos os tópicos</button></div>';
+}
 
 T.meu = function () {
   return api('aluno.painel').then(function (d) {
-    var a = d.aluno;
-    var html = '<h1>Olá, ' + h(a.Nome) + '!</h1><p class="na-mut">Nível: <span class="na-selo">' + h(a.Nivel || 'a definir') + '</span> &nbsp; Mensagens hoje: ' + d.usadasHoje + '/' + d.limite + (d.iaAtiva ? '' : ' &nbsp; <span class="na-selo na-alerta">IA em modo simples</span>') + '</p>';
-    if (d.precisaNivelamento) html += '<div class="na-card"><h2>Primeiro passo: descubra seu nível</h2><p>Uma conversa rápida com o Nice AI, sem prova. Leva uns 5 minutos.</p><button class="na-btn na-dst" data-go="nivelamento">Começar nivelamento</button></div>';
-    html += '<div class="na-card"><h2>Seu progresso</h2>' + barras(d.progresso) + '</div><div class="na-grade">';
-    HAB.forEach(function (k) { html += '<div class="na-card"><h3>' + TITULO[k] + '</h3><p class="na-mut">' + DESCR[k] + '</p><button class="na-btn na-sm" data-go="sala/' + k + '">Praticar</button></div>'; });
-    html += '</div>';
+    S.user.recados = d.recadosNaoLidos; S.user.nivel = d.aluno.Nivel; atualizarChip();
+    var a = d.aluno, esq = '<h1>Olá, ' + h(a.Nome) + '!</h1><p class="na-mut">Seu painel personalizado de hoje' + (d.iaAtiva ? '' : ' &middot; <span class="na-selo na-alerta">IA em modo simples</span>') + '</p>';
+    esq += '<div class="na-stats"><div class="na-stat"><b>🔥 ' + d.streak + '</b><small>dias seguidos</small></div><div class="na-stat"><b>' + d.trilha.pct + '%</b><small>do nível ' + h(a.Nivel || '-') + '</small></div><div class="na-stat"><b>' + d.fluencia + '</b><small>fluência (IA)</small></div></div>';
+    if (d.recadosNaoLidos) esq += '<div class="na-card na-ouro"><h3>📨 Você tem ' + d.recadosNaoLidos + ' recado(s) novo(s) do professor</h3><button class="na-btn na-claro na-sm" data-go="recados">Ver recados</button></div>';
+    if (d.precisaNivelamento) esq += '<div class="na-card"><h2>Primeiro passo: descubra seu nível</h2><p>Uma conversa rápida com o Nice AI, sem prova.</p><button class="na-btn" data-go="nivelamento">Começar nivelamento</button></div>';
+    esq += '<div class="na-card na-vinho na-tutor"><div><h2>AI Tutor da Nice</h2><p class="na-mut">Pratique uma conversa em tempo real, por voz ou texto.</p></div><button class="na-btn" data-go="sala/fala/livre">Começar</button></div>';
+    esq += '<div class="na-balao"><div class="na-robo" aria-hidden="true">🤖</div><p>Pronto para sua prática de conversação de hoje? Vamos falar sobre \'' + h(d.temaDia) + '\'.</p></div>';
+    esq += '<form data-form="preview" class="na-envio"><input name="msg" placeholder="Enviar mensagem..." aria-label="Mensagem para o Nice AI" maxlength="300" autocomplete="off"><button type="submit" aria-label="Enviar">&#10148;</button></form><p></p>';
+    esq += '<div class="na-jogos"><button class="na-jogo na-j1" data-go="jogos/match"><h3>Word Match</h3><div class="na-chips">' + d.amostra.slice(0, 3).map(function (w) { return '<span>' + h(w) + '</span>'; }).join('') + '</div></button><button class="na-jogo na-j2" data-go="jogos/frase"><h3>Sentence Builder</h3><div class="na-chips"><span>I</span><span>want</span><span>...</span></div></button></div>';
+    pintar('<div class="na-dash"><div>' + esq + '</div><div>' + colunaTrilha(d) + '<div class="na-card"><h2>Hoje no Nice AI</h2><p class="na-mut">Usos da IA: ' + d.usadasHoje + '/' + d.limite + '</p><div class="na-grade2">' + HAB.map(function (k) { return '<button class="na-btn na-claro na-sm" data-go="sala/' + k + '">' + ICONE[k] + ' ' + TITULO[k] + '</button>'; }).join(' ') + '</div></div></div><div>' + colunaComunidade(d) + '</div></div>');
+  });
+};
+
+FORMS.preview = function (d) {
+  S.pre = String(d.msg || '').trim();
+  ir('sala/fala/livre');
+};
+
+T.cursos = function () {
+  return Promise.all([api('aluno.painel'), api('aluno.licoes', {})]).then(function (r) {
+    var d = r[0], ls = r[1], conc = {};
+    d.trilha.itens.forEach(function (x) { conc[x.ID] = x.concluida; });
+    var html = '<h1>Cursos</h1><p class="na-mut">Escolha um módulo ou siga a lição sugerida.</p><div class="na-grade">';
+    HAB.forEach(function (k) { html += '<div class="na-card"><h2>' + ICONE[k] + ' ' + TITULO[k] + '</h2><p class="na-mut">' + DESCR[k] + '</p><button class="na-btn na-sm" data-go="sala/' + k + '">Praticar</button></div>'; });
+    html += '</div><div class="na-card"><h2>Todas as lições</h2>';
+    ls.forEach(function (l) { html += '<div class="na-linha" style="justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bd)"><span>' + (conc[l.ID] ? '⭐ ' : '○ ') + h(l.Titulo) + ' <span class="na-selo na-cinza">' + h(l.Nivel) + '</span> <small class="na-mut">' + h(TITULO[l.Habilidade]) + '</small></span><button class="na-btn na-sm na-claro" data-go="sala/' + h(l.Habilidade) + '/' + h(l.ID) + '">Abrir</button></div>'; });
+    pintar(html + '</div>');
+  });
+};
+
+T.progresso = function () {
+  return api('aluno.painel').then(function (d) {
+    var html = '<h1>Progresso</h1><div class="na-stats"><div class="na-stat"><b>🔥 ' + d.streak + '</b><small>dias seguidos</small></div><div class="na-stat"><b>' + d.trilha.pct + '%</b><small>do nível concluído</small></div><div class="na-stat"><b>' + d.fluencia + '</b><small>fluência (média IA)</small></div></div>';
+    html += '<div class="na-grade"><div class="na-card"><h2>Por habilidade</h2>' + barras(d.progresso) + '<p class="na-mut">Notas sugeridas pela IA. O professor pode validar.</p></div>';
+    html += '<div class="na-card"><h2>Seu nível</h2><p><span class="na-selo">' + h(d.aluno.Nivel || 'a definir') + '</span> &rarr; próximo marco <span class="na-selo na-cinza">' + h(d.trilha.marco) + '</span></p><div class="na-barra"><i style="width:' + d.trilha.pct + '%"></i></div><p class="na-mut">' + d.trilha.feitas + ' de ' + d.trilha.total + ' lições concluídas</p></div>';
+    html += '<div class="na-card"><h2>Últimas sessões</h2>' + (d.sessoes.length ? d.sessoes.map(function (s) { return '<div class="na-linha" style="justify-content:space-between"><span>' + h(TITULO[s.Modulo] || s.Modulo) + '</span><small class="na-mut">' + fmtLocal(s.Inicio) + '</small></div>'; }).join('') : '<div class="na-vazio">Nenhuma sessão ainda.</div>') + '</div></div>';
     pintar(html);
   });
 };
 
-T.nivelamento = function () {
-  return salaIniciar('nivelamento', '');
-};
+T.nivelamento = function () { return salaIniciar('nivelamento', ''); };
+
+function palavrasClicaveis(texto) {
+  return String(texto || '').split(/([A-Za-z'’-]+)/).map(function (t, i) { return i % 2 ? '<span class="na-pal" data-act="palavra" role="button" tabindex="0">' + h(t) + '</span>' : h(t).replace(/\n/g, '<br>'); }).join('');
+}
+
+function linhasDe(licao) {
+  var partes = String(licao.Conteudo || '').split(/(?<=[.!?])\s+/).filter(Boolean);
+  return partes.map(function (p) { return { quem: '', texto: p }; });
+}
 
 function salaIniciar(modulo, licaoId) {
   return api('sessao.iniciar', { modulo: modulo, licaoId: licaoId }).then(function (d) {
     S.sala = { id: d.sessaoId, modulo: modulo, licao: d.licao, fim: false, ocupado: false };
-    var titulo = modulo === 'nivelamento' ? 'Nivelamento' : TITULO[modulo];
-    var html = '<h1>' + titulo + '</h1>';
-    if (d.licao) {
-      html += '<div class="na-card"><h3>' + h(d.licao.Titulo) + ' <span class="na-selo na-cinza">' + h(d.licao.Nivel) + '</span></h3>';
-      if (modulo === 'escuta') html += '<div class="na-linha"><button class="na-btn na-sm" data-act="ouvirLicao">&#9658; Ouvir</button><select id="sala-vel" style="width:auto" aria-label="Velocidade"><option value="0.7">Lento</option><option value="1" selected>Normal</option><option value="1.2">Rápido</option></select><button class="na-btn na-sm na-claro" data-act="mostrarTexto">Mostrar texto</button></div><div id="sala-texto" class="na-leitura" hidden>' + h(d.licao.Conteudo) + '</div>';
-      else html += '<div class="na-leitura">' + h(d.licao.Conteudo) + '</div>';
-      html += '</div>';
-    }
-    html += '<div class="na-card"><div id="sala-chat" class="na-chat" aria-live="polite"></div>';
-    html += '<div class="na-entrada"><textarea id="sala-in" aria-label="Sua mensagem" placeholder="Escreva aqui em inglês ou português"></textarea>';
-    html += '<button class="na-btn na-mic" id="sala-mic" data-act="mic" aria-label="Falar" title="Falar">&#127908;</button><button class="na-btn" id="sala-env" data-act="enviar">Enviar</button></div>';
-    html += '<div class="na-linha" style="margin-top:10px"><select id="sala-lang" style="width:auto" aria-label="Idioma da voz"><option value="en-US">Voz: inglês</option><option value="pt-BR">Voz: português</option></select>';
-    html += '<label style="margin:0;display:flex;gap:6px;align-items:center;font-weight:600"><input type="checkbox" id="sala-falar" style="width:auto;min-height:0" checked> Ler respostas em voz alta</label>';
-    html += '<button class="na-btn na-sm na-claro" data-act="encerrar">Encerrar</button></div></div><div id="sala-fim"></div>';
-    pintar(html);
-    salaMsg('agente', d.abertura, [], 'en-US');
-    var v = $('sala-vel');
-    if (v) v.addEventListener('change', function () { S.vel = Number(v.value); });
-    $('sala-in').addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); ACOES.enviar(); } });
+    if (modulo === 'fala') return renderChamada(d);
+    if (modulo === 'escrita') return renderEscrita(d);
+    renderChat(d, modulo);
   });
 }
 
-function salaMsg(papel, texto, correcoes, lang) {
+function botaoConcluir() {
+  return S.sala && S.sala.licao ? '<button class="na-btn na-sm na-dst" data-act="concluir">⭐ Concluir lição</button>' : '';
+}
+
+function renderChat(d, modulo) {
+  var html = '<h1>' + TITULO[modulo] + '</h1>';
+  if (d.licao) {
+    html += '<div class="na-card"><h3>' + h(d.licao.Titulo) + ' <span class="na-selo na-cinza">' + h(d.licao.Nivel) + '</span></h3>';
+    if (modulo === 'escuta') html += playerEscuta({ titulo: d.licao.Titulo, linhas: linhasDe(d.licao) });
+    else html += '<div class="na-leitura" id="sala-texto">' + (modulo === 'leitura' ? palavrasClicaveis(d.licao.Conteudo) : h(d.licao.Conteudo)) + '</div>' + (modulo === 'leitura' ? '<small class="na-mut">Toque em uma palavra para ver a tradução no contexto.</small>' : '');
+    html += '</div>';
+  }
+  pintar(html + chatCard() + '<div id="sala-fim"></div>');
+  iniciarChat(d.abertura);
+}
+
+function chatCard() {
+  var h2 = '<div class="na-card"><div id="sala-chat" class="na-chat" aria-live="polite"></div>';
+  h2 += '<div class="na-entrada"><textarea id="sala-in" aria-label="Sua mensagem" placeholder="Escreva aqui em inglês ou português"></textarea>';
+  h2 += '<button class="na-btn na-mic" id="sala-mic" data-act="mic" aria-label="Falar" title="Falar">&#127908;</button><button class="na-btn" id="sala-env" data-act="enviar">Enviar</button></div>';
+  h2 += '<div class="na-linha" style="margin-top:10px"><select id="sala-lang" style="width:auto" aria-label="Idioma da voz"><option value="en-US">Voz: inglês</option><option value="pt-BR">Voz: português</option></select>';
+  h2 += '<label style="margin:0;display:flex;gap:6px;align-items:center;font-weight:600"><input type="checkbox" id="sala-falar" style="width:auto;min-height:0" checked> Ler respostas em voz alta</label>';
+  return h2 + botaoConcluir() + '<button class="na-btn na-sm na-claro" data-act="encerrar">Encerrar</button></div></div>';
+}
+
+function iniciarChat(abertura) {
+  salaMsg('agente', abertura, [], 'en-US');
+  $('sala-in').addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); ACOES.enviar(); } });
+}
+
+function salaMsg(papel, texto, correcoes) {
   var el = document.createElement('div');
   el.className = 'na-msg na-' + papel;
   var corr = (correcoes || []).map(function (c) {
@@ -433,22 +656,72 @@ function salaMsg(papel, texto, correcoes, lang) {
   return el;
 }
 
-T.sala = function (modulo, licaoId) {
+T.sala = function (modulo, extra) {
   if (HAB.indexOf(modulo) < 0) { erroTela(new Error('Módulo inválido.')); return; }
-  if (licaoId) return salaIniciar(modulo, licaoId);
+  if (extra === 'livre') return modulo === 'escuta' ? telaEscutaGerar() : salaIniciar(modulo, '');
+  if (extra) return salaIniciar(modulo, extra);
   return api('aluno.licoes', { habilidade: modulo }).then(function (ls) {
-    var html = '<h1>' + TITULO[modulo] + '</h1><p class="na-mut">' + DESCR[modulo] + '</p><div class="na-grade">';
-    html += '<div class="na-card"><h3>Conversa livre</h3><p class="na-mut">O Nice AI escolhe o tema pelo seu objetivo.</p><button class="na-btn na-sm na-dst" data-go="sala/' + modulo + '/livre">Começar</button></div>';
+    var html = '<h1>' + ICONE[modulo] + ' ' + TITULO[modulo] + '</h1><p class="na-mut">' + DESCR[modulo] + '</p><div class="na-grade">';
+    html += '<div class="na-card na-vinho"><h3>' + (modulo === 'escuta' ? 'Gerar diálogo ou podcast' : 'Conversa livre') + '</h3><p class="na-mut">' + (modulo === 'escuta' ? 'O Nice AI cria o material no seu nível.' : 'O Nice AI escolhe o tema pelo seu objetivo.') + '</p><button class="na-btn na-sm" data-go="sala/' + modulo + '/livre">Começar</button></div>';
     ls.forEach(function (l) { html += '<div class="na-card"><h3>' + h(l.Titulo) + '</h3><span class="na-selo na-cinza">' + h(l.Nivel) + '</span> <small class="na-mut">' + h(l.Curso) + '</small><p></p><button class="na-btn na-sm" data-go="sala/' + modulo + '/' + h(l.ID) + '">Abrir</button></div>'; });
     pintar(html + '</div>');
   });
 };
 
-var salaOriginal = T.sala;
-T.sala = function (modulo, licaoId) {
-  if (licaoId === 'livre') return salaIniciar(modulo, '');
-  return salaOriginal(modulo, licaoId);
+function telaEscutaGerar() {
+  pintar('<h1>' + ICONE.escuta + ' Escuta</h1><div class="na-card"><h2>Gerar material</h2><form data-form="escuta">' + campo('Tema (opcional)', 'tema', '', 'text', 'maxlength="60" placeholder="Ex.: aeroporto, entrevista de emprego"') + seletor('Tipo', 'tipo', [['dialogo', 'Diálogo'], ['podcast', 'Podcast']], 'dialogo') + '<p></p><button class="na-btn" type="submit">Gerar com o Nice AI</button></form></div>');
+}
+
+FORMS.escuta = function (d) {
+  toast('Criando o material...');
+  return api('ia.escutaGerar', { tema: d.tema, tipo: d.tipo }).then(function (r) {
+    S.sala = { id: r.sessaoId, modulo: 'escuta', licao: null, fim: false, ocupado: false };
+    pintar('<h1>' + ICONE.escuta + ' Escuta</h1><div class="na-card"><h3>' + h(r.material.titulo) + ' <span class="na-selo na-cinza">' + (r.material.origem === 'IA' ? 'gerado pela IA' : 'modelo pronto') + '</span></h3>' + playerEscuta(r.material) + '</div>' + chatCard() + '<div id="sala-fim"></div>');
+    iniciarChat(r.abertura);
+  });
 };
+
+function playerEscuta(m) {
+  S.linhas = m.linhas;
+  var html = '<div class="na-linha"><button class="na-btn na-sm" data-act="tocar" data-i="0">&#9658; Ouvir tudo</button><button class="na-btn na-sm na-claro" data-act="parar">&#9632; Parar</button><select id="sala-vel" style="width:auto" aria-label="Velocidade"><option value="0.7">Lento</option><option value="1" selected>Normal</option><option value="1.2">Rápido</option></select><label style="margin:0;display:flex;gap:6px;align-items:center"><input type="checkbox" id="esc-trans" style="width:auto;min-height:0" data-act="transcricao"> Mostrar transcrição</label></div>';
+  html += '<div id="esc-linhas" hidden style="margin-top:10px">' + m.linhas.map(function (l, i) { return '<div class="na-linhaaudio" data-act="tocar" data-i="' + i + '" id="lin-' + i + '">' + (l.quem ? '<b>' + h(l.quem) + '</b>' : '') + '<span>' + h(l.texto) + '</span></div>'; }).join('') + '</div>';
+  return html;
+}
+
+ACOES.transcricao = function (el) { $('esc-linhas').hidden = !el.checked; };
+ACOES.parar = function () { S.dialogo = false; try { speechSynthesis.cancel(); } catch (e) {} };
+ACOES.tocar = function (el) {
+  var v = $('sala-vel'); S.vel = v ? Number(v.value) : 1;
+  var i = Number(el.getAttribute('data-i')) || 0, falantes = {};
+  S.dialogo = true;
+  function passo(k) {
+    if (!S.dialogo || k >= S.linhas.length) { S.dialogo = false; return; }
+    var l = S.linhas[k], tom = 1;
+    if (l.quem) { if (falantes[l.quem] === undefined) falantes[l.quem] = Object.keys(falantes).length % 2 ? 1.35 : 0.85; tom = falantes[l.quem]; }
+    var antes = document.querySelector('.na-toca'); if (antes) antes.classList.remove('na-toca');
+    var cur = $('lin-' + k); if (cur) cur.classList.add('na-toca');
+    falar(l.texto, 'en-US', function () { passo(k + 1); }, tom);
+  }
+  passo(i);
+};
+
+ACOES.palavra = function (el) {
+  var palavra = el.textContent, texto = (S.sala && S.sala.licao && S.sala.licao.Conteudo) || '', frase = palavra;
+  String(texto).split(/(?<=[.!?])\s+/).forEach(function (f) { if (f.indexOf(palavra) >= 0 && frase === palavra) frase = f; });
+  ACOES.fecharDica();
+  var r = el.getBoundingClientRect(), d = document.createElement('div');
+  d.id = 'na-dica'; d.className = 'na-dica';
+  d.style.left = Math.max(8, Math.min(window.innerWidth - 330, r.left)) + 'px';
+  d.style.top = Math.min(window.innerHeight - 190, r.bottom + 8) + 'px';
+  d.innerHTML = '<h3>' + h(palavra) + '</h3><p class="na-mut" id="dica-corpo">Buscando tradução...</p><div class="na-linha"><button class="na-btn na-sm" data-act="ouvirPalavra" data-p="' + h(palavra) + '">&#128266; Ouvir</button><button class="na-btn na-sm na-claro" data-act="fecharDica">Fechar</button></div>';
+  document.body.appendChild(d);
+  api('ia.palavra', { palavra: palavra, frase: frase }).then(function (x) {
+    S.dicaExp = x.explicacao || x.traducao;
+    $('dica-corpo').innerHTML = '<b>' + h(x.traducao || '-') + '</b>' + (x.explicacao ? '<br>' + h(x.explicacao) : '') + (x.exemplo ? '<br><i>' + h(x.exemplo) + '</i>' : '') + '<br><button class="na-btn na-sm na-claro" data-act="ouvirExplicacao" style="margin-top:6px">&#127911; Explicação em áudio</button>';
+  }).catch(function (e) { var c = $('dica-corpo'); if (c) c.textContent = e.message; });
+};
+ACOES.ouvirPalavra = function (el) { S.vel = 1; falar(el.getAttribute('data-p'), 'en-US'); };
+ACOES.ouvirExplicacao = function () { S.vel = 1; falar(S.dicaExp || '', 'pt-BR'); };
 
 ACOES.enviar = function () {
   var s = S.sala, campoIn = $('sala-in');
@@ -463,7 +736,7 @@ ACOES.enviar = function () {
     esp.remove();
     var lang = r.idioma === 'pt' ? 'pt-BR' : 'en-US';
     var extra = r.nota > 0 ? '\n\n**Nota desta resposta: ' + r.nota + '/100**' : '';
-    salaMsg('agente', r.resposta + extra, r.correcoes, lang);
+    salaMsg('agente', r.resposta + extra, r.correcoes);
     if ($('sala-falar') && $('sala-falar').checked) falar(r.resposta, lang);
     if (r.fim) {
       s.fim = true;
@@ -479,15 +752,16 @@ ACOES.mic = function () {
   if (S.rec) { try { S.rec.stop(); } catch (e) {} return; }
   var ok = ouvirVoz($('sala-lang').value, function (t) {
     $('sala-in').value = (($('sala-in').value ? $('sala-in').value + ' ' : '') + t).trim();
-    if (S.sala && S.sala.modulo === 'fala') ACOES.enviar();
   }, function () { if (b) b.classList.remove('na-gravando'); });
   if (ok && b) b.classList.add('na-gravando');
 };
 
-ACOES.ouvirLicao = function () {
-  if (S.sala && S.sala.licao) { var v = $('sala-vel'); S.vel = v ? Number(v.value) : 1; falar(S.sala.licao.Conteudo, 'en-US'); }
+ACOES.concluir = function () {
+  var id = S.sala && S.sala.id;
+  if (!id) return;
+  api('sessao.concluir', { sessaoId: id }).then(function (r) { toast(r.novo ? 'Lição concluída! ⭐' : 'Lição já estava concluída.'); limparSala(); S.sala = null; ir('inicio'); }).catch(function (e) { toast(e.message); });
 };
-ACOES.mostrarTexto = function () { $('sala-texto').hidden = !$('sala-texto').hidden; };
+
 ACOES.encerrar = function () {
   var id = S.sala && S.sala.id;
   limparSala();
@@ -496,27 +770,201 @@ ACOES.encerrar = function () {
   ir('inicio');
 };
 
-T.biblioteca = function () {
-  return api('aluno.licoes', {}).then(function (ls) {
-    if (!ls.length) { pintar('<h1>Biblioteca</h1><div class="na-vazio">Ainda não há lições cadastradas.</div>'); return; }
-    var html = '<h1>Biblioteca</h1>', niv = {};
-    ls.forEach(function (l) { (niv[l.Nivel] = niv[l.Nivel] || []).push(l); });
-    Object.keys(niv).sort().forEach(function (n) {
-      html += '<h2>Nível ' + h(n) + '</h2><div class="na-grade">';
-      niv[n].forEach(function (l) { html += '<div class="na-card"><h3>' + h(l.Titulo) + '</h3><span class="na-selo">' + h(TITULO[l.Habilidade]) + '</span> <small class="na-mut">' + h(l.Curso) + '</small><p></p><button class="na-btn na-sm" data-go="sala/' + h(l.Habilidade) + '/' + h(l.ID) + '">Estudar</button></div>'; });
-      html += '</div>';
-    });
-    pintar(html);
+function renderEscrita(d) {
+  var html = '<h1>' + ICONE.escrita + ' Escrita</h1><div class="na-card">' + (d.licao ? '<h3>' + h(d.licao.Titulo) + '</h3><p class="na-mut">' + h(d.licao.Conteudo) + '</p>' : '<p class="na-mut">Escreva sobre o tema que quiser: seu dia, seu trabalho, seus planos.</p>');
+  html += '<div class="na-escrita"><div><label for="esc-in">Seu texto</label><textarea id="esc-in" style="min-height:220px" maxlength="1500" placeholder="Write here in English..."></textarea>';
+  html += '<div class="na-linha" style="margin-top:8px"><button class="na-btn na-sm" data-act="corrigirTexto">Corrigir agora</button><button class="na-btn na-sm na-vinhob" data-act="corrigirSalvar">Corrigir e salvar na minha evolução</button></div>';
+  html += '<label style="display:flex;gap:6px;align-items:center;font-weight:600"><input type="checkbox" id="esc-vivo" style="width:auto;min-height:0" checked> Correção ao vivo (ao parar de digitar)</label><small class="na-mut">Cada correção usa 1 do seu limite diário de IA.</small></div>';
+  html += '<div><label>Correção do Nice AI</label><div id="esc-res" class="na-vazio">Comece a escrever. A correção aparece aqui.</div></div></div>';
+  html += '<div class="na-linha" style="margin-top:12px">' + botaoConcluir() + '<button class="na-btn na-sm na-claro" data-act="encerrar">Encerrar</button></div></div>';
+  pintar(html);
+  var ta = $('esc-in'), tim = null;
+  ta.addEventListener('input', function () {
+    clearTimeout(tim);
+    if (!$('esc-vivo').checked || ta.value.trim().length < 15) return;
+    tim = setTimeout(function () { if (ta.value.trim() !== S.ultimoTexto) ACOES.corrigirTexto(); }, 2800);
+  });
+}
+
+ACOES.corrigirSalvar = function () { S.escSalvar = true; ACOES.corrigirTexto(); };
+ACOES.corrigirTexto = function () {
+  var ta = $('esc-in');
+  if (!ta || S.escOcupado) return;
+  var texto = ta.value.trim();
+  if (texto.length < 3) { toast('Escreva um pouco mais.'); return; }
+  S.escOcupado = true; S.ultimoTexto = texto;
+  $('esc-res').innerHTML = '<div class="na-skel"></div>';
+  api('ia.corrigir', { texto: texto, registrar: S.escSalvar === true, sessaoId: S.sala && S.sala.id }).then(function (r) {
+    S.ultimoCorrigido = r.corrigido;
+    var html = '<p><span class="na-selo">Nota ' + r.nota + '/100</span> <span class="na-selo na-cinza">' + (r.origem === 'IA' ? 'IA' : 'correção simples') + '</span>' + (S.escSalvar ? ' <span class="na-selo na-ok">salvo na evolução</span>' : '') + '</p><div class="na-sug">' + h(r.corrigido) + '</div>';
+    html += (r.correcoes || []).map(function (c) { return '<div class="na-corr"><s>' + h(c.original) + '</s> &rarr; <b>' + h(c.corrigido) + '</b><br><small>' + h(c.explicacao) + '</small></div>'; }).join('');
+    if (r.explicacao) html += '<p class="na-mut" style="margin-top:8px">' + h(r.explicacao) + '</p>';
+    html += '<p></p><button class="na-btn na-sm na-claro" data-act="usarCorrigido">Usar o texto corrigido</button> <button class="na-btn na-sm na-claro" data-act="ouvirCorrigido">&#128266; Ouvir</button>';
+    $('esc-res').innerHTML = html;
+  }).catch(function (e) { $('esc-res').innerHTML = '<div class="na-vazio">' + h(e.message) + '</div>'; }).then(function () { S.escOcupado = false; S.escSalvar = false; });
+};
+ACOES.usarCorrigido = function () { if (S.ultimoCorrigido) { $('esc-in').value = S.ultimoCorrigido; S.ultimoTexto = S.ultimoCorrigido; } };
+ACOES.ouvirCorrigido = function () { S.vel = 1; falar(S.ultimoCorrigido || '', 'en-US'); };
+
+function renderChamada(d) {
+  var html = '<h1>' + ICONE.fala + ' Fala</h1><div class="na-card na-fala"><div class="na-robo" id="cham-robo" aria-hidden="true">🤖</div><h2 id="cham-estado">Pronto para a chamada</h2>';
+  html += '<div class="na-legenda" id="cham-leg" aria-live="polite">' + h(d.abertura) + '</div><div class="na-legenda" id="cham-eu" style="opacity:.8">Você: ...</div>';
+  html += '<div class="na-linha" style="justify-content:center"><button class="na-btn" id="cham-btn" data-act="chamada">📞 Iniciar chamada</button><select id="cham-lang" style="width:auto" aria-label="Idioma da sua voz"><option value="en-US">Eu falo: inglês</option><option value="pt-BR">Eu falo: português</option></select></div>';
+  html += '<form data-form="chamtxt" class="na-envio" style="max-width:560px;margin:14px auto 0"><input name="msg" placeholder="Ou digite aqui..." aria-label="Mensagem" autocomplete="off"><button type="submit" aria-label="Enviar">&#10148;</button></form>';
+  html += '<p class="na-mut" style="margin-top:10px">Se você travar ou ficar em silêncio, o Nice AI ajuda em português e retoma em inglês.</p><div class="na-linha" style="justify-content:center">' + botaoConcluir() + '<button class="na-btn na-sm na-claro" data-act="encerrar">Encerrar</button></div></div><div id="sala-fim"></div>';
+  pintar(html);
+  S.chamada = false; S.proc = false; S.silencios = 0;
+  S.sala.abertura = d.abertura;
+}
+
+function chamEstado(txt, cls) {
+  var e = $('cham-estado'), r = $('cham-robo');
+  if (e) e.textContent = txt;
+  if (r) r.className = 'na-robo' + (cls ? ' ' + cls : '');
+}
+
+ACOES.chamada = function () {
+  var b = $('cham-btn');
+  if (S.chamada) { S.chamada = false; try { if (S.rec) S.rec.stop(); speechSynthesis.cancel(); } catch (e) {} chamEstado('Chamada pausada'); b.textContent = '📞 Retomar chamada'; return; }
+  S.chamada = true; S.silencios = 0; S.erroMic = '';
+  b.textContent = '📴 Pausar chamada';
+  var ini = S.pre; S.pre = '';
+  if (ini) { chamEnviar(ini, false); return; }
+  falar(S.sala.abertura, 'en-US', chamOuvir);
+  chamEstado('Nice AI falando...', 'na-falando');
+};
+
+function chamOuvir() {
+  if (!S.chamada || S.proc || !S.sala) return;
+  chamEstado('Ouvindo você...', 'na-ouvindo');
+  var recebeu = false;
+  S.erroMic = '';
+  var ok = ouvirVoz($('cham-lang').value, function (t) { recebeu = true; S.silencios = 0; chamEnviar(t, false); }, function () {
+    if (recebeu || !S.chamada || S.proc) return;
+    if (S.erroMic && S.erroMic !== 'no-speech' && S.erroMic !== 'aborted') { S.chamada = false; chamEstado('Microfone indisponível. Use o texto abaixo.'); $('cham-btn').textContent = '📞 Tentar de novo'; return; }
+    S.silencios++;
+    if (S.silencios >= 2) { S.silencios = 0; chamEnviar('', true); } else chamOuvir();
+  });
+  if (!ok) { S.chamada = false; chamEstado('Use o texto abaixo.'); }
+}
+
+function chamEnviar(texto, travou) {
+  var s = S.sala;
+  if (!s || S.proc) return;
+  S.proc = true;
+  var eu = $('cham-eu');
+  if (eu) eu.textContent = travou ? 'Você: (silêncio)' : 'Você: ' + texto;
+  chamEstado('Nice AI pensando...');
+  api('sessao.enviar', { sessaoId: s.id, texto: texto || '...', travou: travou }).then(function (r) {
+    var leg = $('cham-leg');
+    if (leg) leg.innerHTML = fmtTexto(r.resposta) + (r.correcoes || []).map(function (c) { return '<div class="na-corr"><s>' + h(c.original) + '</s> &rarr; <b>' + h(c.corrigido) + '</b><br><small>' + h(c.explicacao) + '</small></div>'; }).join('') + (r.nota > 0 ? '<p class="na-mut" style="margin:6px 0 0">Nota: ' + r.nota + '/100</p>' : '');
+    S.proc = false;
+    if (!S.chamada) { chamEstado('Resposta recebida'); return; }
+    chamEstado('Nice AI falando...', 'na-falando');
+    falar(r.resposta, r.idioma === 'pt' ? 'pt-BR' : 'en-US', chamOuvir);
+  }).catch(function (e) { S.proc = false; toast(e.message); chamEstado('Erro: ' + e.message); S.chamada = false; var b = $('cham-btn'); if (b) b.textContent = '📞 Tentar de novo'; });
+}
+
+FORMS.chamtxt = function (d, form) {
+  var t = String(d.msg || '').trim();
+  if (!t) return;
+  form.reset();
+  var ativa = S.chamada;
+  S.chamada = ativa;
+  if (S.rec) { try { S.rec.stop(); } catch (e) {} }
+  S.proc = false;
+  chamEnviar(t, false);
+};
+
+T.jogos = function (tipo) {
+  return api('jogo.dados', { tipo: tipo }).then(function (g) {
+    if (tipo === 'frase') return jogoFrase(g);
+    jogoMatch(g);
   });
 };
+
+function jogoMatch(g) {
+  var en = g.pares.map(function (p) { return p.en; }), pt = g.pares.map(function (p) { return p.pt; }).sort(function () { return Math.random() - 0.5; });
+  S.jogo = { sel: null, acertos: 0, total: g.pares.length, pares: g.pares, erros: 0 };
+  var html = '<h1>Word Match</h1><p class="na-mut">Toque na palavra em inglês e depois na tradução.</p><div class="na-card"><div class="na-par"><div class="na-forum">' + en.map(function (w) { return '<button class="na-peca" data-act="matchEn" data-v="' + h(w) + '">' + h(w) + '</button>'; }).join('') + '</div><div class="na-forum">' + pt.map(function (w) { return '<button class="na-peca" data-act="matchPt" data-v="' + h(w) + '">' + h(w) + '</button>'; }).join('') + '</div></div><p id="jogo-res"></p></div><button class="na-btn na-claro" data-go="inicio">Voltar</button>';
+  pintar(html);
+}
+ACOES.matchEn = function (el) {
+  if (el.classList.contains('na-certa')) return;
+  var ant = document.querySelector('[data-act=matchEn].na-sel'); if (ant) ant.classList.remove('na-sel');
+  el.classList.add('na-sel'); S.jogo.sel = el;
+};
+ACOES.matchPt = function (el) {
+  var j = S.jogo;
+  if (!j.sel || el.classList.contains('na-certa')) return;
+  var par = j.pares.filter(function (p) { return p.en === j.sel.getAttribute('data-v'); })[0];
+  if (par && par.pt === el.getAttribute('data-v')) {
+    j.sel.classList.remove('na-sel'); j.sel.classList.add('na-certa'); el.classList.add('na-certa'); j.sel = null; j.acertos++;
+    if (j.acertos === j.total) {
+      var pts = Math.max(0, j.total * 20 - j.erros * 5);
+      $('jogo-res').innerHTML = '<b>Muito bem!</b> Você fez ' + pts + ' pontos. <button class="na-btn na-sm" data-go="jogos/match">Jogar de novo</button>';
+      api('jogo.registrar', { tipo: 'match', pontos: pts }).catch(function () {});
+    }
+  } else { j.erros++; el.classList.add('na-errada'); setTimeout(function () { el.classList.remove('na-errada'); }, 500); }
+};
+
+function jogoFrase(g) {
+  if (!g.frases.length) { pintar('<h1>Sentence Builder</h1><div class="na-vazio">Ainda não há frases de exemplo cadastradas.</div>'); return; }
+  S.jogo = { frases: g.frases, i: 0, pontos: 0 };
+  desenharFrase();
+}
+function desenharFrase() {
+  var j = S.jogo, f = j.frases[j.i], palavras = f.frase.replace(/[.!?]$/, '').split(/\s+/);
+  j.alvo = palavras.join(' '); j.mont = [];
+  var emb = palavras.map(function (w, i) { return { w: w, i: i }; }).sort(function () { return Math.random() - 0.5; });
+  pintar('<h1>Sentence Builder</h1><p class="na-mut">Frase ' + (j.i + 1) + ' de ' + j.frases.length + '. Monte a frase na ordem certa. Dica: ' + h(f.traducao) + '</p><div class="na-card"><div class="na-montada" id="fr-mont" aria-live="polite"></div><div class="na-pecas" id="fr-pecas">' + emb.map(function (x) { return '<button class="na-peca" data-act="fraseAdd" data-i="' + x.i + '" data-w="' + h(x.w) + '">' + h(x.w) + '</button>'; }).join('') + '</div><div class="na-linha"><button class="na-btn" data-act="fraseOk">Verificar</button><button class="na-btn na-claro" data-act="fraseLimpar">Limpar</button></div><p id="jogo-res"></p></div>');
+}
+ACOES.fraseAdd = function (el) {
+  if (el.disabled) return;
+  el.disabled = true; el.style.opacity = '.35';
+  S.jogo.mont.push(el.getAttribute('data-w'));
+  $('fr-mont').textContent = S.jogo.mont.join(' ');
+};
+ACOES.fraseLimpar = function () { desenharFrase(); };
+ACOES.fraseOk = function () {
+  var j = S.jogo, ok = j.mont.join(' ') === j.alvo;
+  if (!ok) { $('jogo-res').innerHTML = '<span class="na-selo na-alerta">Quase! Tente de novo.</span>'; return; }
+  j.pontos += 25;
+  falar(j.alvo, 'en-US');
+  if (j.i + 1 < j.frases.length) { j.i++; $('jogo-res').innerHTML = '<span class="na-selo na-ok">Correto!</span> <button class="na-btn na-sm" data-act="fraseProx">Próxima</button>'; return; }
+  $('jogo-res').innerHTML = '<b>Parabéns!</b> ' + j.pontos + ' pontos. <button class="na-btn na-sm" data-go="jogos/frase">Jogar de novo</button>';
+  api('jogo.registrar', { tipo: 'frase', pontos: j.pontos }).catch(function () {});
+};
+ACOES.fraseProx = function () { desenharFrase(); };
+
+T.biblioteca = function () {
+  pintar('<h1>Biblioteca AI</h1><p class="na-mut">Todos os materiais em um só lugar, organizados por tópico.</p><div class="na-card"><div class="na-linha"><input id="bib-q" placeholder="Buscar por tema, palavra ou habilidade..." aria-label="Buscar" style="flex:1 1 240px" autocomplete="off"><select id="bib-h" style="width:auto" aria-label="Habilidade"><option value="">Todas as habilidades</option>' + HAB.map(function (k) { return '<option value="' + k + '">' + TITULO[k] + '</option>'; }).join('') + '</select><select id="bib-n" style="width:auto" aria-label="Nível"><option value="">Todos os níveis</option>' + ['A1', 'A2', 'B1', 'B2', 'C1'].map(function (n) { return '<option>' + n + '</option>'; }).join('') + '</select></div><label style="display:flex;gap:6px;align-items:center;font-weight:600"><input type="checkbox" id="bib-ia" style="width:auto;min-height:0"> Busca inteligente (IA amplia os termos)</label></div><div id="bib-res"></div>');
+  var tim = null;
+  ['bib-q', 'bib-h', 'bib-n', 'bib-ia'].forEach(function (id) { $(id).addEventListener(id === 'bib-q' ? 'input' : 'change', function () { clearTimeout(tim); tim = setTimeout(buscarMateriais, 350); }); });
+  return buscarMateriais();
+};
+
+function buscarMateriais() {
+  return api('mat.buscar', { q: $('bib-q').value, habilidade: $('bib-h').value, nivel: $('bib-n').value, ia: $('bib-ia').checked }).then(function (r) {
+    var el = $('bib-res');
+    if (!el) return;
+    var html = '', grupos = {};
+    r.licoes.forEach(function (l) { (grupos[l.Topico] = grupos[l.Topico] || []).push(l); });
+    if (r.vocab.length) html += '<div class="na-card"><h2>Vocabulário</h2><div class="na-grade">' + r.vocab.map(function (v) { return '<div><b>' + h(v.Palavra) + '</b> <span class="na-selo na-cinza">' + h(v.Nivel) + '</span><br>' + h(v.Traducao) + '<br><small class="na-mut">' + h(v.Exemplo) + '</small></div>'; }).join('') + '</div></div>';
+    Object.keys(grupos).sort().forEach(function (t) {
+      html += '<div class="na-card"><h2>' + h(t) + '</h2>' + grupos[t].map(function (l) { return '<div class="na-linha" style="justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bd)"><span>' + ICONE[l.Habilidade] + ' ' + h(l.Titulo) + ' <span class="na-selo na-cinza">' + h(l.Nivel) + '</span></span><button class="na-btn na-sm" data-go="sala/' + h(l.Habilidade) + '/' + h(l.ID) + '">Estudar</button></div>'; }).join('') + '</div>';
+    });
+    el.innerHTML = html || '<div class="na-vazio">Nada encontrado. Tente outras palavras.</div>';
+  }).catch(function (e) { var el = $('bib-res'); if (el) el.innerHTML = '<div class="na-vazio">' + h(e.message) + '</div>'; });
+}
 
 T.perfil = function () {
   return api('aluno.painel').then(function (d) {
     var a = d.aluno;
-    pintar('<h1>Meu perfil</h1><div class="na-card"><form data-form="perfil">' + campo('Meu objetivo com o inglês', 'objetivo', a.Objetivo, 'text', 'maxlength="300" placeholder="Ex.: reuniões de trabalho, viagem, entrevista"') +
+    pintar('<h1>Meu perfil</h1><div class="na-grade"><div class="na-card"><form data-form="perfil">' + campo('Meu objetivo com o inglês', 'objetivo', a.Objetivo, 'text', 'maxlength="300" placeholder="Ex.: reuniões de trabalho, viagem, entrevista"') +
       seletor('Explicações do Nice AI em', 'idioma', [['pt', 'Português'], ['en', 'Inglês']], a.Idioma) +
       '<p></p><button class="na-btn" type="submit">Salvar</button></form></div>' +
-      '<div class="na-card"><h2>Testar microfone</h2><p class="na-mut">Confere se este ambiente libera o microfone e o reconhecimento de voz.</p><button class="na-btn na-sm" data-act="testarMic">Testar agora</button><p id="mic-res"></p></div>');
+      '<div class="na-card"><h2>Testar microfone</h2><p class="na-mut">Confere se este ambiente libera o microfone e o reconhecimento de voz.</p><button class="na-btn na-sm" data-act="testarMic">Testar agora</button><p id="mic-res"></p></div></div>');
   });
 };
 
@@ -535,14 +983,20 @@ ACOES.testarMic = function () {
     st.getTracks().forEach(function (t) { t.stop(); });
     out.innerHTML = linhas.join('<br>') + '<br><b>Microfone: liberado.</b>';
   }).catch(function (e) {
-    out.innerHTML = linhas.join('<br>') + '<br><b>Microfone: negado (' + h(e.name) + ').</b> Se aparecer NotAllowedError mesmo permitindo, o iframe do Apps Script está bloqueando; use o modo texto.';
+    out.innerHTML = linhas.join('<br>') + '<br><b>Microfone: negado (' + h(e.name) + ').</b> Libere o microfone nas permissões do navegador para este site.';
   });
 };
+</script>
+<!-- FIM-DO-ARQUIVO -->
 
+<!-- PORTAL-ARQUIVO TelasEquipe v2.0.0 -->
+<script>
 T.turma = function () {
   return api('prof.alunos').then(function (ls) {
-    var html = '<h1>Alunos e turmas</h1>';
+    var html = '<h1>' + (S.user.perfil === 'ADMIN' ? 'Alunos' : 'Minha turma') + '</h1><p class="na-mut">Desempenho de cada aluno e alertas do Nice AI.</p>';
     if (!ls.length) { pintar(html + '<div class="na-vazio">Nenhum aluno vinculado a você ainda.</div>'); return; }
+    var com = ls.filter(function (a) { return a.alertas.length; });
+    if (com.length) html += '<div class="na-card na-ouro"><h3>⚠️ ' + com.length + ' aluno(s) precisam de atenção</h3><p>' + com.map(function (a) { return '<button class="na-btn na-sm na-claro" data-go="aluno/' + encodeURIComponent(a.Email) + '">' + h(a.Nome) + '</button>'; }).join(' ') + '</p></div>';
     html += '<div class="na-card na-rolar"><table class="na-tab"><thead><tr><th>Aluno</th><th>Nível</th><th>Leit.</th><th>Escr.</th><th>Escu.</th><th>Fala</th><th>Alertas</th><th></th></tr></thead><tbody>';
     ls.forEach(function (a) {
       html += '<tr><td>' + h(a.Nome) + '<br><small class="na-mut">' + h(a.Email) + '</small></td><td>' + h(a.Nivel || '-') + '</td>' +
@@ -554,14 +1008,20 @@ T.turma = function () {
   });
 };
 
+function blocoRelatorio(r) {
+  var lista = function (v) { return v && v.length ? '<ul style="margin:4px 0 8px;padding-left:20px">' + v.map(function (x) { return '<li>' + h(x) + '</li>'; }).join('') + '</ul>' : '<p class="na-mut">Nada a destacar.</p>'; };
+  return '<p><span class="na-selo">Semana de ' + h(r.semana) + '</span> <span class="na-selo na-cinza">' + (r.origem === 'IA' ? 'gerado pelo Nice AI' : 'resumo automático') + '</span></p><p>' + h(r.resumo) + '</p><h3>Pontos fortes</h3>' + lista(r.pontosFortes) + '<h3>Erros recorrentes</h3>' + lista(r.errosRecorrentes) + '<h3>Recomendação</h3><p>' + h(r.recomendacao) + '</p>';
+}
+
 T.aluno = function (email) {
   email = decodeURIComponent(email || '');
-  return api('prof.aluno', { email: email }).then(function (d) {
-    var a = d.aluno;
-    var html = '<h1>' + h(a.Nome) + '</h1><p class="na-mut">' + h(a.Email) + ' &middot; objetivo: ' + h(a.Objetivo || 'não informado') + '</p>';
-    html += '<div class="na-card"><h2>Progresso</h2>' + barras(d.progresso) + '<div class="na-linha"><span>Nível:</span>' +
-      '<select id="nivel-sel" style="width:auto">' + ['A1', 'A2', 'B1', 'B2', 'C1'].map(function (n) { return '<option' + (n === a.Nivel ? ' selected' : '') + '>' + n + '</option>'; }).join('') + '</select>' +
-      '<button class="na-btn na-sm" data-act="nivelSalvar" data-email="' + h(a.Email) + '">Confirmar nível</button></div></div>';
+  return Promise.all([api('prof.aluno', { email: email }), api('prof.relatorio', { email: email })]).then(function (res) {
+    var d = res[0], a = d.aluno;
+    S.alunoAtual = a.Email;
+    var html = '<button class="na-btn na-sm na-claro" data-go="turma">&larr; Voltar</button><h1 style="margin-top:10px">' + h(a.Nome) + '</h1><p class="na-mut">' + h(a.Email) + ' &middot; objetivo: ' + h(a.Objetivo || 'não informado') + '</p>';
+    html += '<div class="na-grade"><div class="na-card"><h2>Progresso</h2>' + barras(d.progresso) + '<div class="na-linha"><span>Nível:</span><select id="nivel-sel" style="width:auto">' + ['A1', 'A2', 'B1', 'B2', 'C1'].map(function (n) { return '<option' + (n === a.Nivel ? ' selected' : '') + '>' + n + '</option>'; }).join('') + '</select><button class="na-btn na-sm" data-act="nivelSalvar" data-email="' + h(a.Email) + '">Confirmar nível</button></div></div>';
+    html += '<div class="na-card" id="rel-box"><h2>Relatório semanal</h2>' + blocoRelatorio(res[1]) + '<button class="na-btn na-sm na-claro" data-act="gerarRelatorio">Atualizar relatório</button></div>';
+    html += '<div class="na-card"><h2>Intervenção</h2><p class="na-mut">Envie um recado ou um áudio direto para o app do aluno.</p><form data-form="recado"><label for="f-texto">Recado</label><textarea id="f-texto" name="texto" maxlength="600" placeholder="Ex.: Notei que você ficou alguns dias sem praticar. Vamos retomar?"></textarea><div class="na-linha" style="margin-top:8px"><button type="button" class="na-btn na-sm na-claro" id="grav-btn" data-act="gravar">🎙️ Gravar áudio</button><span id="grav-st" class="na-mut"></span></div><audio id="grav-prev" controls hidden style="width:100%;margin-top:8px"></audio><p></p><button class="na-btn" type="submit">Enviar ao aluno</button></form></div></div>';
     html += '<div class="na-card na-rolar"><h2>Avaliações recentes</h2><table class="na-tab"><thead><tr><th>Habilidade</th><th>Origem</th><th>Nota</th><th></th></tr></thead><tbody>';
     d.avaliacoes.forEach(function (v) {
       html += '<tr><td>' + h(TITULO[v.Habilidade] || v.Habilidade) + '<br><small class="na-mut">' + h(String(v.Quando).slice(0, 10)) + '</small></td><td>' + h(v.Origem) + (v.Validada === '1' ? ' &#10003;' : '') + '</td>' +
@@ -570,8 +1030,49 @@ T.aluno = function (email) {
     });
     html += '</tbody></table></div><div class="na-card"><h2>Últimas conversas</h2><div class="na-chat">';
     d.mensagens.forEach(function (m) { html += '<div class="na-msg na-' + h(m.Papel) + '">' + fmtTexto(m.Texto) + '</div>'; });
-    pintar(html + '</div></div><button class="na-btn na-claro" data-go="turma">Voltar</button>');
+    pintar(html + '</div></div>');
+    S.gravado = null;
   });
+};
+
+ACOES.gerarRelatorio = function () {
+  $('rel-box').innerHTML = '<div class="na-skel"></div>';
+  api('prof.relatorio', { email: S.alunoAtual, gerar: true }).then(function (r) { $('rel-box').innerHTML = '<h2>Relatório semanal</h2>' + blocoRelatorio(r) + '<button class="na-btn na-sm na-claro" data-act="gerarRelatorio">Atualizar relatório</button>'; }).catch(function (e) { toast(e.message); });
+};
+
+ACOES.gravar = function () {
+  var b = $('grav-btn'), st = $('grav-st');
+  if (S.gravador && S.gravador.state === 'recording') { S.gravador.stop(); return; }
+  if (!(navigator.mediaDevices && window.MediaRecorder)) { toast('Este navegador não grava áudio.'); return; }
+  navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+    var partes = [], rec = new MediaRecorder(stream), seg = 0;
+    S.gravador = rec;
+    rec.ondataavailable = function (e) { if (e.data.size) partes.push(e.data); };
+    var cron = setInterval(function () { seg++; st.textContent = seg + 's'; if (seg >= 60 && rec.state === 'recording') rec.stop(); }, 1000);
+    rec.onstop = function () {
+      clearInterval(cron);
+      stream.getTracks().forEach(function (t) { t.stop(); });
+      var blob = new Blob(partes, { type: rec.mimeType || 'audio/webm' });
+      S.gravado = blob;
+      var pv = $('grav-prev'); pv.src = URL.createObjectURL(blob); pv.hidden = false;
+      b.textContent = '🎙️ Gravar de novo'; st.textContent = 'Áudio pronto (' + seg + 's)';
+    };
+    rec.start();
+    b.textContent = '⏹ Parar'; st.textContent = '0s';
+  }).catch(function () { toast('Microfone bloqueado. Libere nas permissões do navegador.'); });
+};
+
+FORMS.recado = function (d) {
+  var envio = function (b64, mime) {
+    return api('prof.recado', { email: S.alunoAtual, texto: d.texto, audio: b64, mime: mime, motivo: 'manual' }).then(function () { toast('Recado enviado ao aluno.'); navegar(); });
+  };
+  if (!S.gravado) return envio('', '');
+  return new Promise(function (ok, err) {
+    var fr = new FileReader();
+    fr.onload = function () { ok(String(fr.result).split(',')[1]); };
+    fr.onerror = function () { err(new Error('Falha ao ler o áudio.')); };
+    fr.readAsDataURL(S.gravado);
+  }).then(function (b64) { return envio(b64, S.gravado.type || 'audio/webm'); });
 };
 
 ACOES.validar = function (el) {
@@ -584,38 +1085,63 @@ ACOES.nivelSalvar = function (el) {
 
 T.indicadores = function () {
   return api('adm.indicadores').then(function (d) {
-    var html = '<h1>Indicadores</h1><div class="na-grade">';
-    [['Alunos', d.alunos], ['Ativos em 7 dias', d.ativos7], ['Sessões', d.sessoes], ['Sessões hoje', d.sessoesHoje]].forEach(function (x) { html += '<div class="na-card"><small class="na-mut">' + x[0] + '</small><h1>' + x[1] + '</h1></div>'; });
-    html += '</div><div class="na-grade"><div class="na-card"><h2>Média por habilidade</h2>' + barras(d.mediaHabilidade) + '</div><div class="na-card"><h2>Alunos por nível</h2>';
+    var brl = function (v) { return 'R$ ' + Number(v).toFixed(2).replace('.', ','); };
+    var html = '<h1>Indicadores do negócio</h1><div class="na-stats" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">';
+    [['Receita recorrente (MRR)', brl(d.mrr)], ['Churn (30 dias)', d.churn.pct + '%'], ['Alunos ativos', d.alunosAtivos], ['Ativos em 7 dias', d.ativos7], ['Sessões hoje', d.sessoesHoje]].forEach(function (x) { html += '<div class="na-stat"><b>' + x[1] + '</b><small>' + x[0] + '</small></div>'; });
+    html += '</div><div class="na-grade"><div class="na-card"><h2>Engajamento diário (14 dias)</h2><div class="na-graf" style="margin-bottom:22px">' + d.engajamento.map(function (e) { return '<div style="height:' + Math.max(4, e.pct) + '%" title="' + e.pct + '% (' + e.ativos + ' alunos)"><span>' + h(e.dia) + '</span></div>'; }).join('') + '</div><p class="na-mut">% de alunos ativos que estudaram em cada dia.</p></div>';
+    html += '<div class="na-card"><h2>Tempo médio por módulo</h2>' + (Object.keys(d.tempoPorModulo).length ? Object.keys(d.tempoPorModulo).map(function (k) { var t = d.tempoPorModulo[k]; return '<div class="na-linha" style="justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd)"><span>' + h(TITULO[k] || k) + '</span><b>' + t.minutos + ' min</b><small class="na-mut">' + t.sessoes + ' sessões</small></div>'; }).join('') : '<div class="na-vazio">Sem sessões ainda.</div>') + '</div>';
+    html += '<div class="na-card"><h2>Média por habilidade</h2>' + barras(d.mediaHabilidade) + '</div><div class="na-card"><h2>Alunos por nível</h2>';
     Object.keys(d.niveis).sort().forEach(function (n) { html += '<div class="na-linha" style="justify-content:space-between"><span>' + h(n) + '</span><b>' + d.niveis[n] + '</b></div>'; });
-    html += '</div></div><div class="na-card"><b>IA:</b> ' + (d.iaAtiva ? '<span class="na-selo">ligada</span>' : '<span class="na-selo na-alerta">modo simples - cadastre a chave em Configurações</span>') + ' &nbsp; Versão ' + h(d.versao) + '</div>';
+    html += '</div></div><div class="na-card"><p><b>Receita:</b> o MRR soma o valor dos planos <i>mensais</i> dos alunos ativos (cadastro em Planos). Receita de planos únicos: ' + brl(d.receitaUnica) + '. A cobrança acontece fora do app.</p><p><b>IA:</b> ' + (d.iaAtiva ? '<span class="na-selo">ligada</span>' : '<span class="na-selo na-alerta">modo simples</span>') + ' &nbsp; Versão ' + h(d.versao) + ' &nbsp; <button class="na-btn na-sm na-claro" data-act="gerarRelatorios">Gerar relatórios semanais agora</button></p></div>';
     pintar(html);
   });
+};
+ACOES.gerarRelatorios = function () {
+  toast('Gerando relatórios...');
+  api('adm.relatoriosGerar').then(function (r) { toast(r.gerados + ' relatório(s) gerado(s).'); }).catch(function (e) { toast(e.message); });
 };
 
 T.usuarios = function () {
   return api('adm.usuarios').then(function (ls) {
     S.lista.usuarios = ls;
-    var html = '<h1>Usuários</h1><div class="na-card"><form data-form="usuario" id="form-usuario">' + campo('E-mail Google', 'Email', '', 'email', 'required') + campo('Nome', 'Nome', '') +
-      seletor('Perfil', 'Perfil', ['ALUNO', 'PROFESSOR', 'ADMIN'], 'ALUNO') + seletor('Ativo', 'Ativo', [['1', 'Sim'], ['0', 'Não']], '1') +
-      campo('Professor responsável (e-mail, só para aluno)', 'ProfessorEmail', '') + campo('Plano (só para aluno)', 'Plano', '') + seletor('Nível (só para aluno)', 'Nivel', ['', 'A1', 'A2', 'B1', 'B2', 'C1'], '') +
+    var html = '<h1>Usuários e permissões</h1><div class="na-card"><form data-form="usuario" id="form-usuario">' + campo('E-mail Google', 'Email', '', 'email', 'required') + campo('Nome', 'Nome', '') +
+      seletor('Perfil', 'Perfil', [['ALUNO', 'Aluno'], ['PROFESSOR', 'Professor'], ['EDITOR', 'Editor de conteúdo'], ['ADMIN', 'Administrador']], 'ALUNO') + seletor('Ativo', 'Ativo', [['1', 'Sim'], ['0', 'Não']], '1') +
+      campo('Professor responsável (e-mail, só para aluno)', 'ProfessorEmail', '') + campo('Plano (só para aluno; use o nome de um plano)', 'Plano', '') + seletor('Nível (só para aluno)', 'Nivel', ['', 'A1', 'A2', 'B1', 'B2', 'C1'], '') +
       '<p></p><button class="na-btn" type="submit">Salvar usuário</button></form></div>';
-    html += '<div class="na-card na-rolar"><table class="na-tab"><thead><tr><th>Nome</th><th>Perfil</th><th>Nível</th><th>Professor</th><th></th></tr></thead><tbody>';
-    ls.forEach(function (u, i) { html += '<tr><td>' + h(u.Nome) + '<br><small class="na-mut">' + h(u.Email) + '</small></td><td>' + h(u.Perfil) + (u.Ativo === '0' ? ' <span class="na-selo na-cinza">inativo</span>' : '') + '</td><td>' + h(u.Nivel) + '</td><td>' + h(u.ProfessorEmail) + '</td><td><button class="na-btn na-sm na-claro" data-act="editarUsuario" data-i="' + i + '">Editar</button></td></tr>'; });
+    html += '<div class="na-card na-rolar"><table class="na-tab"><thead><tr><th>Nome</th><th>Perfil</th><th>Nível</th><th>Plano</th><th>Professor</th><th></th></tr></thead><tbody>';
+    ls.forEach(function (u, i) { html += '<tr><td>' + h(u.Nome) + '<br><small class="na-mut">' + h(u.Email) + '</small></td><td>' + h(u.Perfil) + (u.Ativo === '0' ? ' <span class="na-selo na-cinza">inativo</span>' : '') + '</td><td>' + h(u.Nivel) + '</td><td>' + h(u.Plano) + '</td><td>' + h(u.ProfessorEmail) + '</td><td><button class="na-btn na-sm na-claro" data-act="editarUsuario" data-i="' + i + '">Editar</button></td></tr>'; });
     pintar(html + '</tbody></table></div>');
   });
 };
 ACOES.editarUsuario = function (el) { setForm($('form-usuario'), S.lista.usuarios[Number(el.getAttribute('data-i'))]); };
 FORMS.usuario = function (d) { return api('adm.usuarioSalvar', d).then(function () { toast('Usuário salvo.'); navegar(); }); };
 
-T.licoes = function () {
+T.conteudo = function (aba) {
+  aba = aba || 'licoes';
+  var abas = '<div class="na-abas">' + [['licoes', 'Lições'], ['vocab', 'Vocabulário'], ['diretrizes', 'Diretrizes do Nice AI']].map(function (x) { return '<button data-go="conteudo/' + x[0] + '" class="' + (x[0] === aba ? 'na-ativo' : '') + '">' + x[1] + '</button>'; }).join('') + '</div>';
+  var cab = '<h1>Central de Conteúdo</h1>' + abas;
+  if (aba === 'vocab') return api('adm.vocab').then(function (ls) {
+    S.lista.vocab = ls;
+    var html = cab + '<div class="na-card"><form data-form="vocab" id="form-vocab"><input type="hidden" name="ID">' + campo('Palavra (inglês)', 'Palavra', '', 'text', 'required') + campo('Tradução', 'Traducao', '', 'text', 'required') + seletor('Nível', 'Nivel', ['A1', 'A2', 'B1', 'B2', 'C1'], 'A1') + campo('Tópico', 'Topico', 'Geral') + campo('Frase de exemplo (usada no Sentence Builder)', 'Exemplo', '') + seletor('Ativa', 'Ativo', [['1', 'Sim'], ['0', 'Não']], '1') + '<p></p><button class="na-btn" type="submit">Salvar palavra</button></form></div>';
+    html += '<div class="na-card na-rolar"><table class="na-tab"><thead><tr><th>Palavra</th><th>Tradução</th><th>Nível</th><th>Tópico</th><th></th></tr></thead><tbody>';
+    ls.forEach(function (v, i) { html += '<tr><td>' + h(v.Palavra) + '</td><td>' + h(v.Traducao) + '</td><td>' + h(v.Nivel) + '</td><td>' + h(v.Topico) + '</td><td><button class="na-btn na-sm na-claro" data-act="editarVocab" data-i="' + i + '">Editar</button> <button class="na-btn na-sm na-perigo" data-act="excluirVocab" data-i="' + i + '">Excluir</button></td></tr>'; });
+    pintar(html + '</tbody></table></div>');
+  });
+  if (aba === 'diretrizes') return api('adm.diretrizes').then(function (ls) {
+    S.lista.dir = ls;
+    var html = cab + '<p class="na-mut">Diretrizes pedagógicas que o Nice AI segue em todas as interações. Garantem o tom de voz e a metodologia da escola.</p><div class="na-card"><form data-form="diretriz" id="form-dir"><input type="hidden" name="ID">' + campo('Título', 'Titulo', '', 'text', 'required maxlength="80"') + seletor('Vale para', 'Escopo', [['todos', 'Todos os módulos'], ['leitura', 'Leitura'], ['escrita', 'Escrita'], ['escuta', 'Escuta'], ['fala', 'Fala'], ['nivelamento', 'Nivelamento']], 'todos') + campo('Ordem', 'Ordem', '1', 'number') + seletor('Ativa', 'Ativo', [['1', 'Sim'], ['0', 'Não']], '1') + '<label for="f-Texto">Instrução para o Nice AI</label><textarea id="f-Texto" name="Texto" maxlength="600" required></textarea><p></p><button class="na-btn" type="submit">Salvar diretriz</button></form></div>';
+    html += '<div class="na-card na-rolar"><table class="na-tab"><thead><tr><th>#</th><th>Diretriz</th><th>Escopo</th><th></th></tr></thead><tbody>';
+    ls.forEach(function (x, i) { html += '<tr><td>' + h(x.Ordem) + '</td><td><b>' + h(x.Titulo) + '</b>' + (x.Ativo === '0' ? ' <span class="na-selo na-cinza">inativa</span>' : '') + '<br><small class="na-mut">' + h(x.Texto) + '</small></td><td>' + h(x.Escopo) + '</td><td><button class="na-btn na-sm na-claro" data-act="editarDir" data-i="' + i + '">Editar</button> <button class="na-btn na-sm na-perigo" data-act="excluirDir" data-i="' + i + '">Excluir</button></td></tr>'; });
+    html += '</tbody></table></div><div class="na-card"><h2>Ver o prompt final</h2><div class="na-linha"><select id="pv-mod" style="width:auto">' + ['fala', 'leitura', 'escrita', 'escuta', 'nivelamento'].map(function (m) { return '<option value="' + m + '">' + (TITULO[m] || m) + '</option>'; }).join('') + '</select><button class="na-btn na-sm" data-act="promptPreview">Mostrar</button></div><pre id="pv-out" style="white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);padding:12px;border-radius:12px;font-size:.8rem;margin-top:10px" hidden></pre></div>';
+    pintar(html);
+  });
   return api('adm.licoes').then(function (ls) {
     S.lista.licoes = ls;
-    var html = '<h1>Lições</h1><div class="na-card"><form data-form="licao" id="form-licao"><input type="hidden" name="ID">' + campo('Título', 'Titulo', '', 'text', 'required maxlength="120"') + campo('Curso', 'Curso', 'Power Basics') +
-      seletor('Habilidade', 'Habilidade', HAB, 'leitura') + seletor('Nível', 'Nivel', ['A1', 'A2', 'B1', 'B2', 'C1'], 'A1') + campo('Ordem', 'Ordem', '1', 'number') + seletor('Ativa', 'Ativo', [['1', 'Sim'], ['0', 'Não']], '1') +
+    var html = cab + '<div class="na-card"><form data-form="licao" id="form-licao"><input type="hidden" name="ID">' + campo('Título', 'Titulo', '', 'text', 'required maxlength="120"') + campo('Curso', 'Curso', 'Power Basics') + campo('Tópico (para a busca e a Biblioteca)', 'Topico', '') +
+      seletor('Habilidade', 'Habilidade', HAB, 'leitura') + seletor('Nível', 'Nivel', ['A1', 'A2', 'B1', 'B2', 'C1'], 'A1') + campo('Ordem na trilha', 'Ordem', '1', 'number') + seletor('Ativa', 'Ativo', [['1', 'Sim'], ['0', 'Não']], '1') +
       '<label for="f-Conteudo">Conteúdo (texto da lição ou instruções)</label><textarea id="f-Conteudo" name="Conteudo" maxlength="8000"></textarea><p></p><button class="na-btn" type="submit">Salvar lição</button></form></div>';
-    html += '<div class="na-card na-rolar"><table class="na-tab"><thead><tr><th>#</th><th>Título</th><th>Habilidade</th><th>Nível</th><th></th></tr></thead><tbody>';
-    ls.forEach(function (l, i) { html += '<tr><td>' + h(l.Ordem) + '</td><td>' + h(l.Titulo) + (l.Ativo === '0' ? ' <span class="na-selo na-cinza">inativa</span>' : '') + '</td><td>' + h(l.Habilidade) + '</td><td>' + h(l.Nivel) + '</td><td><button class="na-btn na-sm na-claro" data-act="editarLicao" data-i="' + i + '">Editar</button> <button class="na-btn na-sm na-perigo" data-act="excluirLicao" data-i="' + i + '">Excluir</button></td></tr>'; });
+    html += '<div class="na-card na-rolar"><table class="na-tab"><thead><tr><th>#</th><th>Título</th><th>Tópico</th><th>Habilidade</th><th>Nível</th><th></th></tr></thead><tbody>';
+    ls.forEach(function (l, i) { html += '<tr><td>' + h(l.Ordem) + '</td><td>' + h(l.Titulo) + (l.Ativo === '0' ? ' <span class="na-selo na-cinza">inativa</span>' : '') + '</td><td>' + h(l.Topico) + '</td><td>' + h(l.Habilidade) + '</td><td>' + h(l.Nivel) + '</td><td><button class="na-btn na-sm na-claro" data-act="editarLicao" data-i="' + i + '">Editar</button> <button class="na-btn na-sm na-perigo" data-act="excluirLicao" data-i="' + i + '">Excluir</button></td></tr>'; });
     pintar(html + '</tbody></table></div>');
   });
 };
@@ -626,13 +1152,30 @@ ACOES.excluirLicao = function (el) {
   api('adm.licaoExcluir', { ID: l.ID }).then(function () { toast('Lição excluída.'); navegar(); }).catch(function (e) { toast(e.message); });
 };
 FORMS.licao = function (d) { return api('adm.licaoSalvar', d).then(function () { toast('Lição salva.'); navegar(); }); };
+ACOES.editarVocab = function (el) { setForm($('form-vocab'), S.lista.vocab[Number(el.getAttribute('data-i'))]); };
+ACOES.excluirVocab = function (el) {
+  var v = S.lista.vocab[Number(el.getAttribute('data-i'))];
+  if (!window.confirm('Excluir "' + v.Palavra + '"?')) return;
+  api('adm.vocabExcluir', { ID: v.ID }).then(function () { navegar(); }).catch(function (e) { toast(e.message); });
+};
+FORMS.vocab = function (d) { return api('adm.vocabSalvar', d).then(function () { toast('Palavra salva.'); navegar(); }); };
+ACOES.editarDir = function (el) { setForm($('form-dir'), S.lista.dir[Number(el.getAttribute('data-i'))]); };
+ACOES.excluirDir = function (el) {
+  var x = S.lista.dir[Number(el.getAttribute('data-i'))];
+  if (!window.confirm('Excluir a diretriz "' + x.Titulo + '"?')) return;
+  api('adm.diretrizExcluir', { ID: x.ID }).then(function () { navegar(); }).catch(function (e) { toast(e.message); });
+};
+FORMS.diretriz = function (d) { return api('adm.diretrizSalvar', d).then(function () { toast('Diretriz salva.'); navegar(); }); };
+ACOES.promptPreview = function () {
+  api('adm.promptPreview', { modulo: $('pv-mod').value }).then(function (r) { var o = $('pv-out'); o.textContent = r.prompt; o.hidden = false; }).catch(function (e) { toast(e.message); });
+};
 
 T.planos = function () {
   return api('adm.planos').then(function (ls) {
     S.lista.planos = ls;
-    var html = '<h1>Planos e valores</h1><p class="na-mut">Apenas cadastro. A cobrança acontece fora do app.</p><div class="na-card"><form data-form="plano" id="form-plano"><input type="hidden" name="ID">' + campo('Nome', 'Nome', '', 'text', 'required') + campo('Valor (R$)', 'Valor', '') + campo('Descrição', 'Descricao', '') + seletor('Ativo', 'Ativo', [['1', 'Sim'], ['0', 'Não']], '1') + '<p></p><button class="na-btn" type="submit">Salvar plano</button></form></div>';
-    html += '<div class="na-card na-rolar"><table class="na-tab"><thead><tr><th>Plano</th><th>Valor</th><th>Descrição</th><th></th></tr></thead><tbody>';
-    ls.forEach(function (p, i) { html += '<tr><td>' + h(p.Nome) + '</td><td>R$ ' + h(p.Valor) + '</td><td>' + h(p.Descricao) + '</td><td><button class="na-btn na-sm na-claro" data-act="editarPlano" data-i="' + i + '">Editar</button></td></tr>'; });
+    var html = '<h1>Planos e valores</h1><p class="na-mut">Apenas cadastro. A cobrança acontece fora do app. O MRR usa os planos mensais.</p><div class="na-card"><form data-form="plano" id="form-plano"><input type="hidden" name="ID">' + campo('Nome', 'Nome', '', 'text', 'required') + campo('Valor (R$)', 'Valor', '') + seletor('Cobrança', 'Tipo', [['mensal', 'Mensal'], ['unico', 'Pagamento único']], 'mensal') + campo('Descrição', 'Descricao', '') + seletor('Ativo', 'Ativo', [['1', 'Sim'], ['0', 'Não']], '1') + '<p></p><button class="na-btn" type="submit">Salvar plano</button></form></div>';
+    html += '<div class="na-card na-rolar"><table class="na-tab"><thead><tr><th>Plano</th><th>Valor</th><th>Cobrança</th><th>Descrição</th><th></th></tr></thead><tbody>';
+    ls.forEach(function (p, i) { html += '<tr><td>' + h(p.Nome) + '</td><td>R$ ' + h(p.Valor) + '</td><td>' + (p.Tipo === 'unico' ? 'único' : 'mensal') + '</td><td>' + h(p.Descricao) + '</td><td><button class="na-btn na-sm na-claro" data-act="editarPlano" data-i="' + i + '">Editar</button></td></tr>'; });
     pintar(html + '</tbody></table></div>');
   });
 };
@@ -674,6 +1217,92 @@ T.log = function () {
     ls.forEach(function (l) { html += '<tr><td>' + h(String(l.Quando).replace('T', ' ').slice(0, 16)) + '</td><td>' + h(l.Quem) + '</td><td>' + h(l.Acao) + '</td><td>' + h(l.Detalhe) + '</td></tr>'; });
     pintar(html + '</tbody></table></div>');
   });
+};
+</script>
+<!-- FIM-DO-ARQUIVO -->
+
+<!-- PORTAL-ARQUIVO TelasSocial v2.0.0 -->
+<script>
+T.comunidade = function () {
+  return api('com.lista', {}).then(function (ls) {
+    var html = '<h1>Comunidade Nice</h1><p class="na-mut">Tire dúvidas, troque dicas e pratique com os colegas.</p><div class="na-dash" style="grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)"><div class="na-forum">';
+    if (!ls.length) html += '<div class="na-card na-vazio">Nenhum tópico ainda. Comece o primeiro!</div>';
+    ls.forEach(function (p) { html += '<button class="na-topicoitem" data-go="topico/' + h(p.ID) + '"><small>' + h(p.AutorNome) + ' &middot; ' + fmtLocal(p.Quando) + '</small><b>' + h(p.Titulo) + '</b><small>💬 ' + p.respostas + ' &nbsp; ' + (p.curti ? '👍' : '👍') + ' ' + p.curtidas + '</small></button>'; });
+    html += '</div><div class="na-card"><h2>Novo tópico</h2><form data-form="post">' + campo('Título', 'titulo', '', 'text', 'required maxlength="100"') + '<label for="f-texto">Mensagem</label><textarea id="f-texto" name="texto" maxlength="1000" required></textarea><p></p><button class="na-btn" type="submit">Publicar</button></form></div></div>';
+    pintar(html);
+  });
+};
+FORMS.post = function (d) { return api('com.post', d).then(function (r) { toast('Tópico publicado.'); ir('topico/' + r.ID); }); };
+
+T.topico = function (id) {
+  return api('com.detalhe', { ID: id }).then(function (d) {
+    var p = d.post, html = '<button class="na-btn na-sm na-claro" data-go="comunidade">&larr; Voltar</button><div class="na-card" style="margin-top:12px"><small class="na-mut">' + h(p.AutorNome) + ' &middot; ' + fmtLocal(p.Quando) + '</small><h2>' + h(p.Titulo) + '</h2><p style="white-space:pre-wrap;overflow-wrap:anywhere">' + h(p.Texto) + '</p><div class="na-linha"><button class="na-btn na-sm ' + (p.curti ? '' : 'na-claro') + '" data-act="curtir" data-id="' + h(p.ID) + '">👍 ' + p.curtidas + '</button>' + ((d.podeModerar || p.AutorEmail === d.eu) ? '<button class="na-btn na-sm na-perigo" data-act="excluirTopico" data-id="' + h(p.ID) + '">Excluir</button>' : '') + '</div></div>';
+    html += '<div class="na-card"><h3>' + d.respostas.length + ' resposta(s)</h3>' + d.respostas.map(function (r) { return '<div style="padding:10px 0;border-bottom:1px solid var(--bd)"><small class="na-mut">' + h(r.AutorNome) + ' &middot; ' + fmtLocal(r.Quando) + '</small><p style="margin:2px 0;white-space:pre-wrap;overflow-wrap:anywhere">' + h(r.Texto) + '</p>' + ((d.podeModerar || r.AutorEmail === d.eu) ? '<button class="na-btn na-sm na-claro" data-act="excluirResposta" data-id="' + h(r.ID) + '">Excluir</button>' : '') + '</div>'; }).join('') + '</div>';
+    html += '<div class="na-card"><form data-form="resposta"><input type="hidden" name="postId" value="' + h(p.ID) + '"><label for="f-texto">Sua resposta</label><textarea id="f-texto" name="texto" maxlength="600" required></textarea><p></p><button class="na-btn" type="submit">Responder</button></form></div>';
+    pintar(html);
+  });
+};
+FORMS.resposta = function (d) { return api('com.responder', d).then(function () { toast('Resposta enviada.'); navegar(); }); };
+ACOES.curtir = function (el) { api('com.curtir', { postId: el.getAttribute('data-id') }).then(function () { navegar(); }).catch(function (e) { toast(e.message); }); };
+ACOES.excluirTopico = function (el) {
+  if (!window.confirm('Excluir este tópico?')) return;
+  api('com.excluir', { ID: el.getAttribute('data-id') }).then(function () { toast('Tópico excluído.'); ir('comunidade'); }).catch(function (e) { toast(e.message); });
+};
+ACOES.excluirResposta = function (el) {
+  if (!window.confirm('Excluir esta resposta?')) return;
+  api('com.excluir', { ID: el.getAttribute('data-id'), resposta: true }).then(function () { navegar(); }).catch(function (e) { toast(e.message); });
+};
+
+function slotLinha(s, acao) {
+  return '<div class="na-linha" style="justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bd)"><span><b>' + diaSemana(s.Inicio) + ' ' + fmtLocal(s.Inicio) + '</b> &ndash; ' + String(s.Fim).slice(11) + ' <span class="na-selo ' + (s.Tipo === 'duvidas' ? 'na-cinza' : '') + '">' + (s.Tipo === 'duvidas' ? 'tira-dúvidas' : 'conversação') + '</span>' + (s.AlunoNome ? ' <small class="na-mut">com ' + h(s.AlunoNome) + '</small>' : '') + (s.ProfessorNome && acao.indexOf('aluno') === 0 ? ' <small class="na-mut">prof. ' + h(s.ProfessorNome) + '</small>' : '') + (s.Obs ? '<br><small class="na-mut">' + h(s.Obs) + '</small>' : '') + '</span><span>' + acao.replace(/^aluno|^prof/, '') + '</span></div>';
+}
+
+T.agenda = function () {
+  if (S.user.perfil === 'ALUNO') return Promise.all([api('agenda.minhas'), api('agenda.livres')]).then(function (r) {
+    var html = '<h1>Agenda</h1><p class="na-mut">Reserve aulas de conversação e tira-dúvidas com o seu professor.</p><div class="na-grade"><div class="na-card"><h2>Minhas aulas</h2>';
+    html += r[0].length ? r[0].map(function (s) { return slotLinha(s, 'aluno<button class="na-btn na-sm na-claro" data-act="cancelarAula" data-id="' + h(s.ID) + '">Cancelar</button>'); }).join('') : '<div class="na-vazio">Nenhuma aula reservada.</div>';
+    html += '</div><div class="na-card"><h2>Horários livres</h2>';
+    html += r[1].length ? r[1].map(function (s) { return slotLinha(s, 'aluno<button class="na-btn na-sm" data-act="reservarAula" data-id="' + h(s.ID) + '">Reservar</button>'); }).join('') : '<div class="na-vazio">Nenhum horário livre agora. Volte mais tarde.</div>';
+    pintar(html + '</div></div>');
+  });
+  return api('agenda.profLista').then(function (ls) {
+    var html = '<h1>Agenda</h1><p class="na-mut">Disponibilize horários para conversação avançada e tira-dúvidas.</p><div class="na-grade"><div class="na-card"><h2>Novo horário</h2><form data-form="slot">' + campo('Data e hora', 'inicio', '', 'datetime-local', 'required') + seletor('Duração', 'duracao', [['15', '15 min'], ['30', '30 min'], ['45', '45 min'], ['60', '60 min']], '30') + seletor('Tipo', 'tipo', [['conversacao', 'Conversação avançada'], ['duvidas', 'Tira-dúvidas']], 'conversacao') + seletor('Repetir toda semana por', 'semanas', [['1', 'só este dia'], ['2', '2 semanas'], ['4', '4 semanas'], ['8', '8 semanas']], '1') + campo('Observação (opcional)', 'obs', '', 'text', 'maxlength="200"') + '<p></p><button class="na-btn" type="submit">Disponibilizar</button></form></div><div class="na-card"><h2>Meus horários</h2>';
+    html += ls.length ? ls.map(function (s) { return slotLinha(s, 'prof' + (s.Status === 'RESERVADA' ? '<span class="na-selo na-ok">reservada</span> <button class="na-btn na-sm na-claro" data-act="cancelarAula" data-id="' + h(s.ID) + '">Liberar</button>' : '<span class="na-selo na-cinza">livre</span> <button class="na-btn na-sm na-perigo" data-act="excluirSlot" data-id="' + h(s.ID) + '">Excluir</button>')); }).join('') : '<div class="na-vazio">Nenhum horário cadastrado.</div>';
+    pintar(html + '</div></div>');
+  });
+};
+FORMS.slot = function (d) { return api('agenda.criar', { inicio: d.inicio, duracao: Number(d.duracao), tipo: d.tipo, semanas: Number(d.semanas), obs: d.obs }).then(function (r) { toast(r.criados + ' horário(s) criado(s).'); navegar(); }); };
+ACOES.excluirSlot = function (el) { api('agenda.excluir', { ID: el.getAttribute('data-id') }).then(function () { navegar(); }).catch(function (e) { toast(e.message); }); };
+ACOES.reservarAula = function (el) { api('agenda.reservar', { ID: el.getAttribute('data-id') }).then(function () { toast('Aula reservada!'); navegar(); }).catch(function (e) { toast(e.message); navegar(); }); };
+ACOES.cancelarAula = function (el) {
+  if (!window.confirm('Liberar este horário?')) return;
+  api('agenda.cancelar', { ID: el.getAttribute('data-id') }).then(function () { navegar(); }).catch(function (e) { toast(e.message); });
+};
+
+T.recados = function () {
+  return api('aluno.recados').then(function (ls) {
+    var html = '<h1>Recados</h1><p class="na-mut">Mensagens do seu professor.</p>';
+    if (!ls.length) html += '<div class="na-card na-vazio">Nenhum recado por enquanto.</div>';
+    ls.forEach(function (r) {
+      html += '<div class="na-card' + (r.Lido ? '' : ' na-ouro') + '"><small>' + h(r.ProfessorNome) + ' &middot; ' + fmtLocal(r.Quando) + (r.Lido ? '' : ' &middot; novo') + '</small>' + (r.Texto ? '<p style="margin:6px 0;white-space:pre-wrap;overflow-wrap:anywhere">' + h(r.Texto) + '</p>' : '') + '<div class="na-linha">' + (r.temAudio ? '<button class="na-btn na-sm" data-act="tocarRecado" data-id="' + h(r.ID) + '">&#9658; Ouvir áudio</button>' : '') + (!r.Lido && !r.temAudio ? '<button class="na-btn na-sm na-claro" data-act="lerRecado" data-id="' + h(r.ID) + '">Marcar como lido</button>' : '') + '</div></div>';
+    });
+    pintar(html);
+  });
+};
+ACOES.lerRecado = function (el) { api('aluno.recadoLer', { ID: el.getAttribute('data-id') }).then(function () { S.user.recados = Math.max(0, (S.user.recados || 1) - 1); atualizarChip(); navegar(); }); };
+ACOES.tocarRecado = function (el) {
+  api('aluno.recadoAudio', { ID: el.getAttribute('data-id') }).then(function (r) {
+    var bin = atob(r.audio), bytes = new Uint8Array(bin.length), i;
+    for (i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    var a = new Audio(URL.createObjectURL(new Blob([bytes], { type: r.mime })));
+    a.play().catch(function () { toast('Não foi possível tocar o áudio.'); });
+    S.user.recados = Math.max(0, (S.user.recados || 1) - 1); atualizarChip();
+  }).catch(function (e) { toast(e.message); });
+};
+
+T.suporte = function () {
+  var m = S.marca;
+  pintar('<h1>Suporte</h1><div class="na-card"><p>' + h(m.SUPORTE_TEXTO) + '</p>' + (m.SUPORTE_WHATSAPP ? '<a class="na-btn" href="' + h(m.SUPORTE_WHATSAPP) + '" target="_blank" rel="noopener">Falar pelo WhatsApp</a>' : '<p class="na-mut">O contato da escola ainda não foi configurado.</p>') + '</div><div class="na-card"><h2>Dúvidas rápidas</h2><p><b>O microfone não funciona.</b><br>Libere o microfone nas permissões do navegador para este site e teste em Meu perfil.</p><p><b>Quantas vezes posso usar a IA por dia?</b><br>Há um limite diário por aluno. Ele aparece no seu painel.</p><p><b>Como o professor acompanha meu progresso?</b><br>O Nice AI gera um relatório semanal com seus pontos fortes e erros mais comuns.</p><button class="na-btn na-claro" data-go="perfil">Meu perfil</button></div>');
 };
 </script>
 <!-- FIM-DO-ARQUIVO -->
